@@ -62,10 +62,12 @@ OCCA_DIR ?= ../occa
 
 # env variable MAGMA_DIR can be used too
 #MAGMA_DIR ?= ../magma
+#TODO: FIX THIS with hip detection...
 MAGMA_DIR ?= .
 # If CUDA_DIR is not set, check for nvcc, or resort to /usr/local/cuda
 #CUDA_DIR  ?= $(or $(patsubst %/,%,$(dir $(patsubst %/,%,$(dir \
 #               $(shell which nvcc 2> /dev/null))))),/usr/local/cuda)
+#TODO: FIX THIS to not avoid cuda
 CUDA_DIR ?= .
 HIP_DIR ?= /opt/rocm/hip
 
