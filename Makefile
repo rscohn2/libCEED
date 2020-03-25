@@ -561,14 +561,7 @@ DOXYGEN ?= doxygen
 doxygen :
 	$(DOXYGEN) Doxyfile
 
-# This is a real file, but it doesn't depend on the state of a file,
-# so we make it phony to force it.  We sort the shortlog by author
-# last name.
-.PHONY: AUTHORS
-AUTHORS:
-	git shortlog -s | awk '{$$1 = "placeholder"; print $$NF,$$0}' | sort | cut -d\  -f3- > $@
-
-doc-html doc-latexpdf doc-epub : doc-% : doxygen AUTHORS
+doc-html doc-latexpdf doc-epub : doc-% : doxygen
 	make -C doc/sphinx $*
 
 doc : doc-html
@@ -629,6 +622,14 @@ configure :
 	@echo "Configuration cached in $(CONFIG):"
 	@cat $(CONFIG)
 
-.PHONY : configure
+wheel : export MARCHFLAG = -march=generic
+wheel : export WHEEL_PLAT = manylinux2010_x86_64
+wheel :
+	docker run -it --user $(shell id -u):$(shell id -g) --rm -v $(PWD):/io -w /io \
+		-e MARCHFLAG -e WHEEL_PLAT \
+		quay.io/pypa/$(WHEEL_PLAT) python/make-wheels.sh
 
--include $(libceed.c:%.c=$(OBJDIR)/%.d) $(tests.c:tests/%.c=$(OBJDIR)/%.d)
+.PHONY : configure wheel
+
+# Include *.d deps when not -B = --always-make: useful if the paths are wonky in a container
+-include $(if $(filter B,$(MAKEFLAGS)),,$(libceed.c:%.c=$(OBJDIR)/%.d) $(tests.c:tests/%.c=$(OBJDIR)/%.d))
