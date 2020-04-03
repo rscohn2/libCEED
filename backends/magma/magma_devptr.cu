@@ -1,7 +1,6 @@
 #include <ceed.h>
 #include <magma.h>
-#include <cuda.h>
-#include <cuda_runtime.h>
+#include <hip/hip_runtime_api.h>
 
 /***************************************************************************//**
     Determines whether a pointer points to CPU or GPU memory.

@@ -18,7 +18,7 @@
 
 #include <string.h>
 #include <ceed-backend.h>
-#include "magma.h"
+#include "magma_ceed_inc.h"
 
 typedef struct {
   CeedScalar *dqref1d;
@@ -155,7 +155,7 @@ CEED_INTERN {
 //#define CeedDebug(format, ...) fprintf(stderr, format, ## __VA_ARGS__)
 
 // comment the line below to use the default magma_is_devptr function
-#define magma_is_devptr magma_isdevptr
+//#define magma_is_devptr magma_isdevptr
 
 // batch stride, override using -DMAGMA_BATCH_STRIDE=<desired-value>
 #ifndef MAGMA_BATCH_STRIDE
