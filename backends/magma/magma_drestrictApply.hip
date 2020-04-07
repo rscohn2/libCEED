@@ -15,7 +15,8 @@
 // testbed platforms, in support of the nation's exascale computing imperative.
 
 #include <ceed.h>
-#include <magma.h>
+#include <magma_v2.h>
+#include <hip/hip_runtime_api.h>
 #include "atomics.hiph"
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -194,7 +195,7 @@ magma_readDofs(const magma_int_t NCOMP,
     magma_int_t grid    = nelem;
     magma_int_t threads = 256;
 
-    magma_readDofs_kernel<<<grid, threads, 0, NULL>>>(NCOMP, nnodes, esize, nelem, 
+    hipLaunchKernelGGL(magma_readDofs_kernel, dim3(grid), dim3(threads), 0, NULL, NCOMP, nnodes, esize, nelem, 
                                                       indices, du, dv);
 }
 
@@ -212,7 +213,7 @@ magma_readDofsTranspose(const magma_int_t NCOMP,
     magma_int_t threads = 256;
 
     assert(NCOMP<=4);
-    magma_readDofsTranspose_kernel<256,4><<<grid, threads, 0, NULL>>>(NCOMP, nnodes, esize, nelem,
+    hipLaunchKernelGGL(HIP_KERNEL_NAME(magma_readDofsTranspose_kernel<256,4>), dim3(grid), dim3(threads), 0, NULL, NCOMP, nnodes, esize, nelem,
                                                                indices, du, dv);
 }
 
@@ -229,7 +230,7 @@ magma_readDofsStrided(const magma_int_t NCOMP,
     magma_int_t grid    = nelem;
     magma_int_t threads = 256;
 
-    magma_readDofsStrided_kernel<<<grid, threads, 0, NULL>>>(NCOMP, nnodes, esize, nelem, 
+    hipLaunchKernelGGL(magma_readDofsStrided_kernel, dim3(grid), dim3(threads), 0, NULL, NCOMP, nnodes, esize, nelem, 
                                                              strides, du, dv);
 }
 
@@ -246,7 +247,7 @@ magma_writeDofs(const magma_int_t NCOMP,
     magma_int_t grid    = nelem;
     magma_int_t threads = 256;
 
-    magma_writeDofs_kernel<<<grid, threads, 0, NULL>>>(NCOMP, nnodes, esize, nelem, 
+    hipLaunchKernelGGL(magma_writeDofs_kernel, dim3(grid), dim3(threads), 0, NULL, NCOMP, nnodes, esize, nelem, 
                                                        indices, du, dv);
 }
 
@@ -264,7 +265,7 @@ magma_writeDofsTranspose(const magma_int_t NCOMP,
     magma_int_t threads = 256;
 
     assert(NCOMP<=4);
-    magma_writeDofsTranspose_kernel<256,4><<<grid, threads, 0, NULL>>>(NCOMP, nnodes, esize, nelem,
+    hipLaunchKernelGGL(HIP_KERNEL_NAME(magma_writeDofsTranspose_kernel<256,4>), dim3(grid), dim3(threads), 0, NULL, NCOMP, nnodes, esize, nelem,
                                                                        indices, du, dv);
 }
 
@@ -281,6 +282,6 @@ magma_writeDofsStrided(const magma_int_t NCOMP,
     magma_int_t grid    = nelem;
     magma_int_t threads = 256;
 
-    magma_writeDofsStrided_kernel<<<grid, threads, 0, NULL>>>(NCOMP, nnodes, esize, nelem, 
+    hipLaunchKernelGGL(magma_writeDofsStrided_kernel, dim3(grid), dim3(threads), 0, NULL, NCOMP, nnodes, esize, nelem, 
                                                               strides, du, dv);
 }

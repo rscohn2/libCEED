@@ -16,6 +16,15 @@
 
 #include "ceed-magma.h"
 
+static int CeedDestroy_Magma(Ceed ceed) {
+  int ierr;
+  Ceed_Magma *data;
+  ierr = CeedGetData(ceed, (void **)&data); CeedChk(ierr);
+  magma_queue_destroy( data->queue );
+  ierr = CeedFree(&data); CeedChk(ierr);
+  return 0;
+}
+
 static int CeedInit_Magma(const char *resource, Ceed ceed) {
   int ierr;
   if (strcmp(resource, "/gpu/magma"))
@@ -27,7 +36,7 @@ static int CeedInit_Magma(const char *resource, Ceed ceed) {
   // Create refrence CEED that implementation will be dispatched
   //   through unless overridden
   Ceed ceedref;
-  CeedInit("/gpu/cuda/ref", &ceedref);
+  CeedInit("/gpu/hip/ref", &ceedref);
   ierr = CeedSetDelegate(ceed, ceedref); CeedChk(ierr);
 
   ierr = magma_init();
@@ -36,15 +45,30 @@ static int CeedInit_Magma(const char *resource, Ceed ceed) {
     return CeedError(ceed, 1, "error in magma_init(): %d\n", ierr);
   // LCOV_EXCL_STOP
 
+  Ceed_Magma *data;
+  ierr = CeedCalloc(sizeof(Ceed_Magma), &data); CeedChk(ierr);
+  ierr = CeedSetData(ceed, (void **)&data); CeedChk(ierr);
+
+  // create a queue that uses the null stream
+  magma_getdevice( &(data->device) );
+  magma_queue_create_from_hip(data->device, NULL, NULL, NULL, &(data->queue));
+
   ierr = CeedSetBackendFunction(ceed, "Ceed", ceed, "ElemRestrictionCreate",
-                                CeedElemRestrictionCreate_Magma); CeedChk(ierr);
+                         reinterpret_cast<int (*)()>(CeedElemRestrictionCreate_Magma));
+  CeedChk(ierr);
   ierr = CeedSetBackendFunction(ceed, "Ceed", ceed,
                                 "ElemRestrictionCreateBlocked",
-                                CeedElemRestrictionCreateBlocked_Magma); CeedChk(ierr);
+                         reinterpret_cast<int (*)()>(CeedElemRestrictionCreateBlocked_Magma));
+  CeedChk(ierr);
   ierr = CeedSetBackendFunction(ceed, "Ceed", ceed, "BasisCreateTensorH1",
-                                CeedBasisCreateTensorH1_Magma); CeedChk(ierr);
+                         reinterpret_cast<int (*)()>(CeedBasisCreateTensorH1_Magma));
+  CeedChk(ierr);
   ierr = CeedSetBackendFunction(ceed, "Ceed", ceed, "BasisCreateH1",
-                                CeedBasisCreateH1_Magma); CeedChk(ierr);
+                         reinterpret_cast<int (*)()>(CeedBasisCreateH1_Magma));
+  CeedChk(ierr);
+  ierr = CeedSetBackendFunction(ceed, "Ceed", ceed, "Destroy",
+                         reinterpret_cast<int (*)()>( CeedDestroy_Magma));
+  CeedChk(ierr);
   return 0;
 }
 

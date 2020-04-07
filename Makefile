@@ -190,7 +190,7 @@ cuda-gen.c     := $(sort $(wildcard backends/cuda-gen/*.c))
 cuda-gen.cpp   := $(sort $(wildcard backends/cuda-gen/*.cpp))
 cuda-gen.cu    := $(sort $(wildcard backends/cuda-gen/*.cu))
 occa.c         := $(sort $(wildcard backends/occa/*.c))
-magma_allsrc.c := $(sort $(wildcard backends/magma/*.c)) 
+magma_allsrc.cpp := $(sort $(wildcard backends/magma/*.cpp)) 
 magma_allsrc.hip := $(sort $(wildcard backends/magma/*.hip)) 
 hip.hip        := $(sort $(wildcard backends/hip/*.hip))
 hip.cpp        += $(sort $(wildcard backends/hip/*.cpp))
@@ -352,7 +352,10 @@ HIP_LIB_DIR := $(patsubst %/,%,$(dir $(firstword $(HIP_LIB_DIR))))
 HIP_BACKENDS = /gpu/hip/ref
 ifneq ($(HIP_LIB_DIR),)
   $(libceeds) : HIPCCFLAGS += -I$(HIP_DIR)/include -I$(HIPBLASDIR)/include -I./include -I$(ROCM_DIR)/include
-  $(libceeds) : CPPFLAGS += -I$(HIP_DIR)/include -I$(HIPBLASDIR)/include -I$(ROCM_DIR)/include -D__HIP_PLATFORM_HCC__
+  $(libceeds) : CPPFLAGS += -I$(HIP_DIR)/include -I$(HIPBLASDIR)/include -I$(ROCM_DIR)/include
+  ifneq ($(CXX), $(HIPCC))
+    CPPFLAGS += -D__HIP_PLATFORM_HCC__
+  endif
   $(libceeds) : LDFLAGS += -L$(HIP_LIB_DIR) -Wl,-rpath,$(abspath $(HIP_LIB_DIR)) -L$(HIPBLASDIR)/lib  -Wl,-rpath,$(abspath $(HIPBLASDIR)/lib)
   $(libceeds) : LDLIBS += -lhip_hcc -lhiprtc -lhipblas
   $(libceeds) : LINK = $(CXX)
@@ -364,15 +367,16 @@ endif
 # MAGMA Backend
 ifneq ($(wildcard $(MAGMA_DIR)/lib/libmagma.*),)
   ifneq ($(HIP_LIB_DIR),)
-  magma_link_static = -L$(MAGMA_DIR)/lib -lmagma $(cuda_link) $(omp_link)
+  omp_link = -fopenmp
+  magma_link_static = -L$(MAGMA_DIR)/lib -lmagma $(omp_link)
   magma_link_shared = -L$(MAGMA_DIR)/lib -Wl,-rpath,$(abspath $(MAGMA_DIR)/lib) -lmagma
   magma_link := $(if $(wildcard $(MAGMA_DIR)/lib/libmagma.${SO_EXT}),$(magma_link_shared),$(magma_link_static))
-  $(libceeds)           : LDLIBS += $(magma_link)
+  $(libceeds)          : LDLIBS += $(magma_link)
   $(tests) $(examples) : LDLIBS += $(magma_link)
-  libceed.c  += $(magma_allsrc.c)
+  libceed.cpp += $(magma_allsrc.cpp)
   libceed.hip += $(magma_allsrc.hip)
-  $(magma_allsrc.c:%.c=$(OBJDIR)/%.o) $(magma_allsrc.c:%=%.tidy) : CFLAGS += -DADD_ -I$(MAGMA_DIR)/include -I$(HIP_DIR)/include -I$(HIPBLASDIR)/include -I$(ROCM_DIR)/include -D__HIP_PLATFORM_HCC__
-  $(magma_allsrc.hip:%.hip=$(OBJDIR)/%.o) : CPPFLAGS += --compiler-options=-fPIC -DADD_ -I$(MAGMA_DIR)/include -I$(MAGMA_DIR)/magmablas -I$(MAGMA_DIR)/control 
+  $(magma_allsrc.cpp:%.cpp=$(OBJDIR)/%.o) : CPPFLAGS += -DADD_ -I$(MAGMA_DIR)/include -DHAVE_HIP
+  $(magma_allsrc.hip:%.hip=$(OBJDIR)/%.o) : HIPCCFLAGS += -DADD_ -I$(MAGMA_DIR)/include -I$(MAGMA_DIR)/magmablas -I$(MAGMA_DIR)/control -DHAVE_HIP 
   BACKENDS += /gpu/magma
   endif
 endif

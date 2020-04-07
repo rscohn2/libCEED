@@ -15,14 +15,14 @@
 // testbed platforms, in support of the nation's exascale computing imperative.
 
 #include <ceed.h>
-#include <magma.h>
+#include <magma_v2.h>
 #include "magma_tc_device.hiph"
 #include "magma_dbasisApply_interp_device.hiph"
+#include <hip/hip_runtime.h>
 
 #define ipow(a,b) ( (magma_int_t)(std::pow( (float)(a), (float)(b) ) ) )
 
 //////////////////////////////////////////////////////////////////////////////////////////
-extern __shared__ double shared_data[];
 template<int P, int Q>
 static __global__ void
 dbasis_apply_eval_interp_kernel_batched( 
@@ -31,13 +31,16 @@ dbasis_apply_eval_interp_kernel_batched(
     const double *dU, const int u_elstride, const int u_compstride, 
           double *dV, const int v_elstride, const int v_compstride)
 {
+
+    HIP_DYNAMIC_SHARED( double, shared_data_interp)
+
     const int elem_id = blockIdx.x; 
     const int comp_id = blockIdx.y;
     dbasis_apply_eval_interp_device< P, Q >
     ( dim, ncomp, pre_org, post_org, tmp_size, dT, transT, 
       dU + (elem_id * u_elstride) + (comp_id * u_compstride), 
       dV + (elem_id * v_elstride) + (comp_id * v_compstride), 
-      shared_data );
+      shared_data_interp );
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -73,8 +76,7 @@ dbasis_apply_eval_interp_kernel_batched_driver(
     else { 
         dim3 threads(nthreads, 1, 1);
         dim3 grid(nelem, ncomp, 1);
-        dbasis_apply_eval_interp_kernel_batched<P, Q><<<grid, threads, shmem, 0>>>
-        ( dim, ncomp, pre, post, tmp_size, dT, transT, 
+        hipLaunchKernelGGL(HIP_KERNEL_NAME(dbasis_apply_eval_interp_kernel_batched<P, Q>), dim3(grid), dim3(threads), shmem, 0,  dim, ncomp, pre, post, tmp_size, dT, transT, 
           dU, u_elstride, u_compstride, 
           dV, v_elstride, v_compstride );
         

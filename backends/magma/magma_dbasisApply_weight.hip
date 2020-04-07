@@ -15,7 +15,8 @@
 // testbed platforms, in support of the nation's exascale computing imperative.
 
 #include <ceed.h>
-#include <magma.h>
+#include <magma_v2.h>
+#include <hip/hip_runtime.h>
 
 //////////////////////////////////////////////////////////////////////////////////////////
 template<int Q>
@@ -24,7 +25,7 @@ dbasis_apply_eval_weight_device(
     const int dim, 
     const int pre_org, const int post_org,  
     const double *dqweight1d, double *dV, 
-    double* shared_data )
+    double* shared_data_weight )
 {
     const int nthreads = blockDim.x;
     const int tx = threadIdx.x;
@@ -35,7 +36,7 @@ dbasis_apply_eval_weight_device(
     int slice_id = tx / post;
     
     // the size of V is Q^dim, which is pre * post
-    double* sVorg      = (double*)shared_data;
+    double* sVorg      = (double*)shared_data_weight;
     double* sqweight1d = sVorg + (pre*post*Q);
     double* sV;
 
@@ -85,7 +86,6 @@ dbasis_apply_eval_weight_device(
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
-extern __shared__ double shared_data[];
 template<int Q>
 static __global__ void
 dbasis_apply_eval_weight_kernel_batched( 
@@ -93,9 +93,12 @@ dbasis_apply_eval_weight_kernel_batched(
     const double *dqweight1d, 
     double *dV, const int vstride)
 {
+
+    HIP_DYNAMIC_SHARED( double, shared_data_wb)
+
     const int batchid = blockIdx.x; 
     dbasis_apply_eval_weight_device< Q >
-    ( dim, pre_org, post_org, dqweight1d, dV+(batchid*vstride), shared_data );
+    ( dim, pre_org, post_org, dqweight1d, dV+(batchid*vstride), shared_data_wb );
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -138,8 +141,7 @@ dbasis_apply_eval_weight_kernel_batched_driver(
     else { 
         dim3 threads(nthreads, 1, 1);
         dim3 grid(batchCount, 1, 1);
-        dbasis_apply_eval_weight_kernel_batched<Q><<<grid, threads, shmem, 0>>>
-        ( dim, pre_org, post_org, dqweight1d, dV, vstride );
+        hipLaunchKernelGGL(HIP_KERNEL_NAME(dbasis_apply_eval_weight_kernel_batched<Q>), dim3(grid), dim3(threads), shmem, 0,  dim, pre_org, post_org, dqweight1d, dV, vstride );
         
         return 0;
     } 
@@ -192,5 +194,5 @@ extern "C" void
 magma_weight(magma_int_t grid, magma_int_t threads, magma_int_t nelem, magma_int_t Q, 
              double *dqweight, double *dv)
 {
-    magma_weight_kernel<<<grid, threads, 0, NULL>>>(nelem, Q, dqweight, dv);
+    hipLaunchKernelGGL(magma_weight_kernel, dim3(grid), dim3(threads), 0, NULL, nelem, Q, dqweight, dv);
 }

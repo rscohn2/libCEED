@@ -15,15 +15,15 @@
 // testbed platforms, in support of the nation's exascale computing imperative.
 
 #include <ceed.h>
-#include <magma.h>
+#include <magma_v2.h>
 #include "magma_tc_device.hiph"
 #include "magma_dbasisApply_grad_device.hiph"
+#include <hip/hip_runtime.h>
 
 #define hip_ipow(a,b) ( (int)(__powf( (float)(a), (float)(b) ) ) )
 #define ipow(a,b) ( (magma_int_t)(std::pow( (float)(a), (float)(b) ) ) )
 
 //////////////////////////////////////////////////////////////////////////////////////////
-extern __shared__ double shared_data[];
 template<int P, int Q>
 static __global__ void
 dbasis_apply_eval_grad_kernel_batched( 
@@ -34,6 +34,9 @@ dbasis_apply_eval_grad_kernel_batched(
           double *dV, const int v_elstride, const int v_compstride, const int v_dimstride, 
     const int dim_id )
 {
+
+    HIP_DYNAMIC_SHARED( double, shared_data_grad)
+
     const int elem_id = blockIdx.x;
     const int comp_id = blockIdx.y;
     int tx = threadIdx.x;
@@ -43,7 +46,7 @@ dbasis_apply_eval_grad_kernel_batched(
     dU += (elem_id * u_elstride) + (comp_id * u_compstride);
     dV += (elem_id * v_elstride) + (comp_id * v_compstride);
 
-    double* sTinterp = (double*)shared_data;
+    double* sTinterp = (double*)shared_data_grad;
     double* sTgrad = sTinterp + P * Q;
     
     // read T in shared memory
@@ -54,7 +57,7 @@ dbasis_apply_eval_grad_kernel_batched(
     pre  = pre_org; // the value of pre is independent from the loop below
     post = 1;
     dbasis_apply_eval_grad_device<P, Q>
-    ( dim_id, dim, ncomp, pre, post, tmp_size, sTinterp, sTgrad, transT, dU, dV, shared_data + (2*P*Q) );
+    ( dim_id, dim, ncomp, pre, post, tmp_size, sTinterp, sTgrad, transT, dU, dV, shared_data_grad + (2*P*Q) );
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -83,9 +86,9 @@ dbasis_apply_eval_grad_kernel_batched_driver(
     
     //printf("%d threads, shared memory = %f KB\n", nthreads, (float)shmem / 1024.0);
     
-    if( shmem >= 49000 ) {
-        hipFuncSetAttribute(dbasis_apply_eval_grad_kernel_batched<P,Q>, hipFuncAttributeMaxDynamicSharedMemorySize, shmem);
-    }
+//    if( shmem >= 49000 ) {
+//        hipFuncSetAttribute(dbasis_apply_eval_grad_kernel_batched<P,Q>, HIP_FUNC_ATTRIBUTE_MAX_DYNAMIC_SHARED_SIZE_BYTES, shmem);
+//    }
 
     if( nthreads > 1024 ) {
         return 1;    // launch failed
@@ -93,8 +96,7 @@ dbasis_apply_eval_grad_kernel_batched_driver(
     else { 
         dim3 threads(nthreads, 1, 1);
         dim3 grid(nelem, ncomp, 1);
-        dbasis_apply_eval_grad_kernel_batched<P, Q><<<grid, threads, shmem, 0>>>
-        ( dim, ncomp, nqpt, pre, tmp_size, dinterp1d, dgrad1d, transT, 
+        hipLaunchKernelGGL(HIP_KERNEL_NAME(dbasis_apply_eval_grad_kernel_batched<P, Q>), dim3(grid), dim3(threads), shmem, 0,  dim, ncomp, nqpt, pre, tmp_size, dinterp1d, dgrad1d, transT, 
           dU, u_elstride, u_compstride, u_dimstride, 
           dV, v_elstride, v_compstride, v_dimstride, 
           dim_id );
