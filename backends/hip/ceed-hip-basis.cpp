@@ -448,7 +448,7 @@ int CeedBasisApply_Hip(CeedBasis basis, const CeedInt nelem,
   //CeedBasisGetData(basis, (void *)&data); CeedChk(ierr);
   CeedBasisGetData(basis, (void **) &data); CeedChk(ierr);
   const CeedInt transpose = tmode == CEED_TRANSPOSE;
-  const int maxblocksize = 32;//ceed_Hip->optblocksize;
+  const int maxblocksize = 64;//ceed_Hip->optblocksize;
 
   const CeedScalar *d_u;
   CeedScalar *d_v;
@@ -483,7 +483,7 @@ int CeedBasisApply_Hip(CeedBasis basis, const CeedInt nelem,
     CeedChk(ierr);
   } else if (emode == CEED_EVAL_WEIGHT) {
     void *weightargs[] = {(void *) &nelem, (void *) &data->d_qweight1d, &d_v};
-    const int blocksize = 32;
+    const int blocksize = 64;
     int gridsize = nelem/blocksize;
     if (blocksize * gridsize < nelem)
       gridsize += 1;
