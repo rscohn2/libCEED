@@ -285,7 +285,7 @@ static PetscErrorCode CreateRestrictionFromPlex(Ceed ceed, DM dm, CeedInt P,
 }
 
 // Utility function to get Ceed Restriction for each domain
-static PetscErrorCode GetRestriction(Ceed ceed, DM dm, CeedInt ncompx, CeedInt dim,
+static PetscErrorCode GetRestrictionForDomain(Ceed ceed, DM dm, CeedInt ncompx, CeedInt dim,
     CeedInt height, DMLabel domainLabel, CeedInt value, CeedInt P, CeedInt Q,
     CeedInt qdatasize, CeedElemRestriction *restrictq,
     CeedElemRestriction *restrictx, CeedElemRestriction *restrictqdi) {
@@ -1046,7 +1046,7 @@ int main(int argc, char **argv) {
 
   // CEED Restrictions
   // Restrictions on the Volume
-  ierr = GetRestriction(ceed, dm, ncompx, dim, 0, 0, 0, numP_Vol, numQ_Vol, qdatasizeVol,
+  ierr = GetRestrictionForDomain(ceed, dm, ncompx, dim, 0, 0, 0, numP_Vol, numQ_Vol, qdatasizeVol,
     &restrictqVol, &restrictxVol, &restrictqdiVol); CHKERRQ(ierr);
 
   ierr = DMGetCoordinatesLocal(dm, &Xloc); CHKERRQ(ierr);
