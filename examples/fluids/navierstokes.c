@@ -285,14 +285,13 @@ static PetscErrorCode CreateRestrictionFromPlex(Ceed ceed, DM dm, CeedInt P,
 }
 
 // Utility function to get Ceed Restriction for each domain
-static PetscErrorCode GetCeedRestriction(Ceed ceed, DM dm, CeedInt ncompx, CeedInt dim,
+static PetscErrorCode GetRestriction(Ceed ceed, DM dm, CeedInt ncompx, CeedInt dim,
     CeedInt height, DMLabel domainLabel, CeedInt value, CeedInt P, CeedInt Q,
     CeedInt qdatasize, CeedElemRestriction *restrictq,
     CeedElemRestriction *restrictx, CeedElemRestriction *restrictqdi) {
 
   DM dmcoord;
   CeedInt localNelem;
-  CeedElemRestriction  restrictxcoord;
   CeedInt Qdim = CeedIntPow(Q, dim);
   PetscErrorCode ierr;
 
@@ -308,10 +307,6 @@ static PetscErrorCode GetCeedRestriction(Ceed ceed, DM dm, CeedInt ncompx, CeedI
   CeedElemRestrictionCreateStrided(ceed, localNelem, Qdim,
                                    qdatasize, qdatasize*localNelem*Qdim,
                                    CEED_STRIDES_BACKEND, restrictqdi);
-  CeedElemRestrictionCreateStrided(ceed, localNelem, PetscPowInt(P, dim),
-                                   ncompx,
-                                   ncompx*localNelem*PetscPowInt(P, dim),
-                                   CEED_STRIDES_BACKEND, &restrictxcoord);
   PetscFunctionReturn(0);
 }
 
@@ -690,8 +685,8 @@ int main(int argc, char **argv) {
   CeedInt numP_Vol, numP_Sur, numQ_Vol, numQ_Sur;
   CeedVector xcorners, qdataVol, qdataSur, q0ceedVol, q0ceedSur;
   CeedBasis basisxVol, basisxcVol, basisqVol, basisxSur, basisxcSur, basisqSur;
-  CeedElemRestriction restrictxVol, restrictxcoordVol, restrictqVol, restrictqdiVol,
-                      restrictxSur, restrictxcoordSur, restrictqSur, restrictqdiSur;
+  CeedElemRestriction restrictxVol, restrictqVol, restrictqdiVol,
+                      restrictxSur, restrictqSur, restrictqdiSur;
   CeedQFunction qf_setupVol, qf_setupSur, qf_ics, qf_rhsVol, qf_rhsSur,
                 qf_ifunctionVol, qf_ifunctionSur;
   CeedOperator op_setupVol, op_setupSur, op_ics;
@@ -1051,7 +1046,7 @@ int main(int argc, char **argv) {
 
   // CEED Restrictions
   // Restrictions on the Volume
-  ierr = GetCeedRestriction(ceed, dm, ncompx, dim, 0, 0, 0, numP_Vol, numQ_Vol, qdatasizeVol,
+  ierr = GetRestriction(ceed, dm, ncompx, dim, 0, 0, 0, numP_Vol, numQ_Vol, qdatasizeVol,
     &restrictqVol, &restrictxVol, &restrictqdiVol); CHKERRQ(ierr);
 
   ierr = DMGetCoordinatesLocal(dm, &Xloc); CHKERRQ(ierr);
