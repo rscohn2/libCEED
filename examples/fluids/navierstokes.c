@@ -1147,7 +1147,6 @@ int main(int argc, char **argv) {
   //--------------------------------------------------------------------------------------//
   // Set up CEED for the boundaries
   // CEED bases
-
   CeedInt height = 1;
   CeedInt dimSur = dim - height;
   numP_Sur = degreeSur + 1;
@@ -1234,8 +1233,7 @@ int main(int argc, char **argv) {
     CeedOperatorSetField(op, "v", restrictqSur, basisqSur, CEED_VECTOR_ACTIVE);
     user->op_ifunction_sur = op;
   }
-
-  //**************************************************************************************//
+  // Composite Operaters
   if (user->op_ifunction_vol) {
     if (user->op_ifunction_sur) {
       // Composite Operators for the IFunction
@@ -1256,7 +1254,7 @@ int main(int argc, char **argv) {
     user->op_rhs = user->op_rhs_vol;
     }
   }
-
+  //**************************************************************************************//
   CeedQFunctionSetContext(qf_ics, &ctxSetup, sizeof ctxSetup);
   CeedScalar ctxNS[8] = {lambda, mu, k, cv, cp, g, Rd};
   struct Advection2dContext_ ctxAdvection2d = {
