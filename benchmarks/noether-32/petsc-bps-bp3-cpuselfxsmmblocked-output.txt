@@ -1,0 +1,2438 @@
+Using backend /cpu/self/xsmm/blocked ...
+Reading test file: /projects/libceed/benchmarks/petsc-bps.sh
+
+Example(s) required by the test: petsc-bps
+
+Running the tests using a total of 32 MPI tasks ...
+... with 32 tasks per node ...
+
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 1 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 9
+    Local Elements                     : 0
+    Owned nodes                        : 0
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 1.559567e-15
+  Performance:
+    Pointwise Error (max)              : 4.610601e-01
+    CG Solve Time                      : 0.000107527 (4.62532e-05) sec
+    DoFs/Sec in CG                     : 0.0837001 (0.194581) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 2 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 27
+    Local Elements                     : 2
+    Owned nodes                        : 0
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 1.676694e-15
+  Performance:
+    Pointwise Error (max)              : 4.927479e-01
+    CG Solve Time                      : 7.29561e-05 (4.43459e-05) sec
+    DoFs/Sec in CG                     : 0.370086 (0.608851) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 4 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 63
+    Local Elements                     : 4
+    Owned nodes                        : 0
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 3.870934e-15
+  Performance:
+    Pointwise Error (max)              : 2.042121e-01
+    CG Solve Time                      : 8.79765e-05 (4.29153e-05) sec
+    DoFs/Sec in CG                     : 0.716101 (1.46801) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 8 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 147
+    Local Elements                     : 8
+    Owned nodes                        : 1
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 4.730409e-15
+  Performance:
+    Pointwise Error (max)              : 1.646419e-01
+    CG Solve Time                      : 6.50883e-05 (4.14848e-05) sec
+    DoFs/Sec in CG                     : 2.25847 (3.54346) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 16 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 343
+    Local Elements                     : 16
+    Owned nodes                        : 3
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 3.865541e-15
+  Performance:
+    Pointwise Error (max)              : 1.573528e-01
+    CG Solve Time                      : 0.000119209 (5.50747e-05) sec
+    DoFs/Sec in CG                     : 2.87729 (6.22791) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 32 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 735
+    Local Elements                     : 32
+    Owned nodes                        : 9
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 6.788826e-15
+  Performance:
+    Pointwise Error (max)              : 7.263407e-02
+    CG Solve Time                      : 0.000132561 (5.76973e-05) sec
+    DoFs/Sec in CG                     : 5.54463 (12.7389) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 64 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 1575
+    Local Elements                     : 63
+    Owned nodes                        : 21
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 7.081924e-15
+  Performance:
+    Pointwise Error (max)              : 4.802769e-02
+    CG Solve Time                      : 9.08375e-05 (5.74589e-05) sec
+    DoFs/Sec in CG                     : 17.3387 (27.4109) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 128 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 3375
+    Local Elements                     : 126
+    Owned nodes                        : 56
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 5.631190e-15
+  Performance:
+    Pointwise Error (max)              : 4.352341e-02
+    CG Solve Time                      : 0.000136614 (7.39098e-05) sec
+    DoFs/Sec in CG                     : 24.7047 (45.6638) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 256 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 6975
+    Local Elements                     : 268
+    Owned nodes                        : 151
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 9.100810e-15
+  Performance:
+    Pointwise Error (max)              : 1.967342e-02
+    CG Solve Time                      : 0.000277519 (0.00015831) sec
+    DoFs/Sec in CG                     : 25.1334 (44.0591) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 512 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 14415
+    Local Elements                     : 510
+    Owned nodes                        : 324
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 9.585068e-15
+  Performance:
+    Pointwise Error (max)              : 1.246584e-02
+    CG Solve Time                      : 0.000201941 (0.000151634) sec
+    DoFs/Sec in CG                     : 71.3824 (95.0643) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 1024 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 29791
+    Local Elements                     : 987
+    Owned nodes                        : 677
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 8.515652e-15
+  Performance:
+    Pointwise Error (max)              : 1.115298e-02
+    CG Solve Time                      : 0.000329256 (0.000260115) sec
+    DoFs/Sec in CG                     : 90.4797 (114.53) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 2048 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 60543
+    Local Elements                     : 1990
+    Owned nodes                        : 1525
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 2.940923e-14
+  Performance:
+    Pointwise Error (max)              : 5.015865e-03
+    CG Solve Time                      : 0.000520945 (0.000467539) sec
+    DoFs/Sec in CG                     : 116.218 (129.493) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 4096 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 123039
+    Local Elements                     : 4109
+    Owned nodes                        : 3313
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 2.888782e-14
+  Performance:
+    Pointwise Error (max)              : 3.145626e-03
+    CG Solve Time                      : 0.00128245 (0.00120854) sec
+    DoFs/Sec in CG                     : 95.9403 (101.808) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 8192 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 250047
+    Local Elements                     : 8207
+    Owned nodes                        : 6930
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 2.388684e-14
+  Performance:
+    Pointwise Error (max)              : 2.805424e-03
+    CG Solve Time                      : 0.00267887 (0.00260305) sec
+    DoFs/Sec in CG                     : 93.3404 (96.0591) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 16384 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 504063
+    Local Elements                     : 16380
+    Owned nodes                        : 14325
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 6.781082e-14
+  Performance:
+    Pointwise Error (max)              : 1.260106e-03
+    CG Solve Time                      : 0.00541401 (0.00532579) sec
+    DoFs/Sec in CG                     : 93.1035 (94.6456) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 32768 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 1016127
+    Local Elements                     : 32765
+    Owned nodes                        : 29160
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 6.632179e-14
+  Performance:
+    Pointwise Error (max)              : 7.882369e-04
+    CG Solve Time                      : 0.0105078 (0.0104685) sec
+    DoFs/Sec in CG                     : 96.702 (97.0654) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 1 -local_nodes 65536 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 2048383
+    Local Elements                     : 65536
+    Owned nodes                        : 60078
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 1
+    Final rnorm                        : 5.790210e-14
+  Performance:
+    Pointwise Error (max)              : 7.024326e-04
+    CG Solve Time                      : 0.0209956 (0.0209913) sec
+    DoFs/Sec in CG                     : 97.5624 (97.5824) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 8 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 147
+    Local Elements                     : 0
+    Owned nodes                        : 0
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 8
+    Final rnorm                        : 1.363144e-14
+  Performance:
+    Pointwise Error (max)              : 6.498264e-02
+    CG Solve Time                      : 0.000341892 (0.000239611) sec
+    DoFs/Sec in CG                     : 3.43968 (4.90796) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 16 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 343
+    Local Elements                     : 2
+    Owned nodes                        : 3
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 8
+    Final rnorm                        : 6.799677e-15
+  Performance:
+    Pointwise Error (max)              : 6.530038e-02
+    CG Solve Time                      : 0.000266075 (0.000228405) sec
+    DoFs/Sec in CG                     : 10.3129 (12.0137) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 32 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 735
+    Local Elements                     : 4
+    Owned nodes                        : 9
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 8
+    Final rnorm                        : 4.621441e-12
+  Performance:
+    Pointwise Error (max)              : 1.683793e-02
+    CG Solve Time                      : 0.000349045 (0.00029397) sec
+    DoFs/Sec in CG                     : 16.846 (20.002) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 64 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 1575
+    Local Elements                     : 8
+    Owned nodes                        : 27
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 8
+    Final rnorm                        : 2.933854e-13
+  Performance:
+    Pointwise Error (max)              : 9.716219e-03
+    CG Solve Time                      : 0.00028038 (0.000228167) sec
+    DoFs/Sec in CG                     : 44.939 (55.2228) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 128 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 3375
+    Local Elements                     : 16
+    Owned nodes                        : 63
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 8
+    Final rnorm                        : 5.689956e-14
+  Performance:
+    Pointwise Error (max)              : 9.727504e-03
+    CG Solve Time                      : 0.000307798 (0.000271082) sec
+    DoFs/Sec in CG                     : 87.7198 (99.6009) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 256 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 6975
+    Local Elements                     : 32
+    Owned nodes                        : 147
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 8
+    Final rnorm                        : 6.052162e-11
+  Performance:
+    Pointwise Error (max)              : 2.812595e-03
+    CG Solve Time                      : 0.000560522 (0.000496626) sec
+    DoFs/Sec in CG                     : 99.55 (112.358) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 512 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 14415
+    Local Elements                     : 63
+    Owned nodes                        : 311
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 8
+    Final rnorm                        : 2.052280e-12
+  Performance:
+    Pointwise Error (max)              : 1.264536e-03
+    CG Solve Time                      : 0.000686169 (0.000646114) sec
+    DoFs/Sec in CG                     : 168.064 (178.482) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 1024 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 29791
+    Local Elements                     : 126
+    Owned nodes                        : 695
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 8
+    Final rnorm                        : 2.484101e-13
+  Performance:
+    Pointwise Error (max)              : 1.264798e-03
+    CG Solve Time                      : 0.00120997 (0.0011425) sec
+    DoFs/Sec in CG                     : 196.969 (208.602) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 2048 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 60543
+    Local Elements                     : 268
+    Owned nodes                        : 1637
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 9
+    Final rnorm                        : 3.674535e-12
+  Performance:
+    Pointwise Error (max)              : 3.725928e-04
+    CG Solve Time                      : 0.00241971 (0.00233197) sec
+    DoFs/Sec in CG                     : 225.187 (233.659) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 4096 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 123039
+    Local Elements                     : 510
+    Owned nodes                        : 3285
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 8
+    Final rnorm                        : 6.121040e-12
+  Performance:
+    Pointwise Error (max)              : 1.595616e-04
+    CG Solve Time                      : 0.00452566 (0.00444579) sec
+    DoFs/Sec in CG                     : 217.496 (221.403) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 8192 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 250047
+    Local Elements                     : 987
+    Owned nodes                        : 6585
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 8
+    Final rnorm                        : 9.216092e-13
+  Performance:
+    Pointwise Error (max)              : 1.595606e-04
+    CG Solve Time                      : 0.00497556 (0.00490379) sec
+    DoFs/Sec in CG                     : 402.041 (407.924) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 16384 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 504063
+    Local Elements                     : 1990
+    Owned nodes                        : 13979
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 10
+    Final rnorm                        : 6.197959e-13
+  Performance:
+    Pointwise Error (max)              : 4.720987e-05
+    CG Solve Time                      : 0.0132506 (0.0131922) sec
+    DoFs/Sec in CG                     : 380.408 (382.092) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 32768 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 1016127
+    Local Elements                     : 4109
+    Owned nodes                        : 29581
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : CONVERGED_RTOL
+    Total KSP Iterations               : 9
+    Final rnorm                        : 2.219686e-13
+  Performance:
+    Pointwise Error (max)              : 1.999028e-05
+    CG Solve Time                      : 0.0280929 (0.0280418) sec
+    DoFs/Sec in CG                     : 325.533 (326.125) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 2 -local_nodes 65536 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 2048383
+    Local Elements                     : 8207
+    Owned nodes                        : 60417
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 5
+    Final rnorm                        : 1.216019e-03
+  Performance:
+    Pointwise Error (max)              : 9.512768e-05
+    CG Solve Time                      : 0.0352247 (0.0350952) sec
+    DoFs/Sec in CG                     : 290.76 (291.832) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 3 -local_nodes 27 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 605
+    Local Elements                     : 0
+    Owned nodes                        : 0
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 4.397210e-07
+  Performance:
+    Pointwise Error (max)              : 1.124675e-02
+    CG Solve Time                      : 0.000617743 (0.000559807) sec
+    DoFs/Sec in CG                     : 19.5874 (21.6146) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 3 -local_nodes 54 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 1331
+    Local Elements                     : 2
+    Owned nodes                        : 20
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 6.273008e-08
+  Performance:
+    Pointwise Error (max)              : 1.180762e-02
+    CG Solve Time                      : 0.000638962 (0.000610113) sec
+    DoFs/Sec in CG                     : 41.6613 (43.6313) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 3 -local_nodes 108 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 2783
+    Local Elements                     : 4
+    Owned nodes                        : 50
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.841197e-06
+  Performance:
+    Pointwise Error (max)              : 2.563970e-03
+    CG Solve Time                      : 0.000629663 (0.000596762) sec
+    DoFs/Sec in CG                     : 88.3964 (93.2701) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 3 -local_nodes 216 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 5819
+    Local Elements                     : 8
+    Owned nodes                        : 125
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 4.159977e-07
+  Performance:
+    Pointwise Error (max)              : 1.124782e-03
+    CG Solve Time                      : 0.000671148 (0.000640154) sec
+    DoFs/Sec in CG                     : 173.404 (181.8) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 3 -local_nodes 432 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 12167
+    Local Elements                     : 16
+    Owned nodes                        : 275
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 4.078234e-09
+  Performance:
+    Pointwise Error (max)              : 1.047218e-03
+    CG Solve Time                      : 0.000915766 (0.000875473) sec
+    DoFs/Sec in CG                     : 265.723 (277.953) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 3 -local_nodes 864 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 24863
+    Local Elements                     : 32
+    Owned nodes                        : 605
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.716083e-06
+  Performance:
+    Pointwise Error (max)              : 2.403591e-04
+    CG Solve Time                      : 0.00112534 (0.00109816) sec
+    DoFs/Sec in CG                     : 441.877 (452.814) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 3 -local_nodes 1728 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 50807
+    Local Elements                     : 63
+    Owned nodes                        : 1247
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.442906e-07
+  Performance:
+    Pointwise Error (max)              : 8.287712e-05
+    CG Solve Time                      : 0.00183082 (0.00179911) sec
+    DoFs/Sec in CG                     : 555.02 (564.803) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 3 -local_nodes 3456 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 103823
+    Local Elements                     : 126
+    Owned nodes                        : 2672
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.241547e-10
+  Performance:
+    Pointwise Error (max)              : 7.309078e-05
+    CG Solve Time                      : 0.00297332 (0.00294471) sec
+    DoFs/Sec in CG                     : 698.365 (705.15) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 3 -local_nodes 6912 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 209855
+    Local Elements                     : 268
+    Owned nodes                        : 6065
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 6.643121e-07
+  Performance:
+    Pointwise Error (max)              : 1.655029e-05
+    CG Solve Time                      : 0.0103724 (0.0103223) sec
+    DoFs/Sec in CG                     : 404.641 (406.604) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 3 -local_nodes 13824 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 424175
+    Local Elements                     : 510
+    Owned nodes                        : 11942
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.605377e-08
+  Performance:
+    Pointwise Error (max)              : 5.394210e-06
+    CG Solve Time                      : 0.0100899 (0.0100007) sec
+    DoFs/Sec in CG                     : 840.793 (848.29) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 3 -local_nodes 27648 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 857375
+    Local Elements                     : 987
+    Owned nodes                        : 23645
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 9.041638e-12
+  Performance:
+    Pointwise Error (max)              : 4.697773e-06
+    CG Solve Time                      : 0.0319097 (0.0318203) sec
+    DoFs/Sec in CG                     : 537.376 (538.886) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 3 -local_nodes 55296 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 1723775
+    Local Elements                     : 1990
+    Owned nodes                        : 49301
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.362311e-07
+  Performance:
+    Pointwise Error (max)              : 1.059554e-06
+    CG Solve Time                      : 0.0759647 (0.0758853) sec
+    DoFs/Sec in CG                     : 453.836 (454.311) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 4 -local_nodes 64 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 1575
+    Local Elements                     : 0
+    Owned nodes                        : 0
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.999768e-04
+  Performance:
+    Pointwise Error (max)              : 1.393140e-03
+    CG Solve Time                      : 0.000706673 (0.000637531) sec
+    DoFs/Sec in CG                     : 44.5751 (49.4093) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 4 -local_nodes 128 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 3375
+    Local Elements                     : 2
+    Owned nodes                        : 63
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 8.510807e-05
+  Performance:
+    Pointwise Error (max)              : 1.365463e-03
+    CG Solve Time                      : 0.000778913 (0.000754833) sec
+    DoFs/Sec in CG                     : 86.6592 (89.4237) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 4 -local_nodes 256 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 6975
+    Local Elements                     : 4
+    Owned nodes                        : 147
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.714440e-03
+  Performance:
+    Pointwise Error (max)              : 6.432753e-04
+    CG Solve Time                      : 0.000798941 (0.000777006) sec
+    DoFs/Sec in CG                     : 174.606 (179.535) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 4 -local_nodes 512 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 14415
+    Local Elements                     : 8
+    Owned nodes                        : 343
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.082957e-03
+  Performance:
+    Pointwise Error (max)              : 1.965389e-04
+    CG Solve Time                      : 0.00078702 (0.000758886) sec
+    DoFs/Sec in CG                     : 366.319 (379.899) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 4 -local_nodes 1024 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 29791
+    Local Elements                     : 16
+    Owned nodes                        : 735
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 4.477263e-05
+  Performance:
+    Pointwise Error (max)              : 4.929636e-05
+    CG Solve Time                      : 0.0015769 (0.0015049) sec
+    DoFs/Sec in CG                     : 377.842 (395.921) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 4 -local_nodes 2048 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 60543
+    Local Elements                     : 32
+    Owned nodes                        : 1575
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.468773e-03
+  Performance:
+    Pointwise Error (max)              : 5.463522e-04
+    CG Solve Time                      : 0.00253534 (0.00249553) sec
+    DoFs/Sec in CG                     : 477.592 (485.212) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 4 -local_nodes 4096 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 123039
+    Local Elements                     : 63
+    Owned nodes                        : 3207
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.088234e-03
+  Performance:
+    Pointwise Error (max)              : 1.873697e-04
+    CG Solve Time                      : 0.00463367 (0.00458407) sec
+    DoFs/Sec in CG                     : 531.066 (536.811) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 4 -local_nodes 8192 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 250047
+    Local Elements                     : 126
+    Owned nodes                        : 6743
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.953829e-05
+  Performance:
+    Pointwise Error (max)              : 4.244561e-06
+    CG Solve Time                      : 0.0102351 (0.0101719) sec
+    DoFs/Sec in CG                     : 488.608 (491.643) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 4 -local_nodes 16384 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 504063
+    Local Elements                     : 268
+    Owned nodes                        : 15043
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.537638e-03
+  Performance:
+    Pointwise Error (max)              : 4.938220e-04
+    CG Solve Time                      : 0.0166614 (0.0165875) sec
+    DoFs/Sec in CG                     : 605.067 (607.763) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 4 -local_nodes 32768 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 1016127
+    Local Elements                     : 510
+    Owned nodes                        : 29355
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.542386e-03
+  Performance:
+    Pointwise Error (max)              : 2.010111e-04
+    CG Solve Time                      : 0.0296018 (0.0295396) sec
+    DoFs/Sec in CG                     : 686.53 (687.976) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 4 -local_nodes 65536 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 2048383
+    Local Elements                     : 987
+    Owned nodes                        : 57779
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 6.808021e-06
+  Performance:
+    Pointwise Error (max)              : 1.403238e-06
+    CG Solve Time                      : 0.0692661 (0.0692172) sec
+    DoFs/Sec in CG                     : 591.453 (591.871) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 5 -local_nodes 125 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 3249
+    Local Elements                     : 0
+    Owned nodes                        : 0
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 4.607691e-03
+  Performance:
+    Pointwise Error (max)              : 1.391516e-03
+    CG Solve Time                      : 0.000893831 (0.000820398) sec
+    DoFs/Sec in CG                     : 72.6983 (79.2054) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 5 -local_nodes 250 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 6859
+    Local Elements                     : 2
+    Owned nodes                        : 144
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.033687e-03
+  Performance:
+    Pointwise Error (max)              : 5.493719e-04
+    CG Solve Time                      : 0.000982761 (0.000974655) sec
+    DoFs/Sec in CG                     : 139.586 (140.747) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 5 -local_nodes 500 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 14079
+    Local Elements                     : 4
+    Owned nodes                        : 324
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.596102e-02
+  Performance:
+    Pointwise Error (max)              : 8.709887e-03
+    CG Solve Time                      : 0.00120592 (0.00119424) sec
+    DoFs/Sec in CG                     : 233.498 (235.782) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 5 -local_nodes 1000 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 28899
+    Local Elements                     : 8
+    Owned nodes                        : 729
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.386425e-02
+  Performance:
+    Pointwise Error (max)              : 6.096246e-03
+    CG Solve Time                      : 0.00111485 (0.00110364) sec
+    DoFs/Sec in CG                     : 518.44 (523.704) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 5 -local_nodes 2000 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 59319
+    Local Elements                     : 16
+    Owned nodes                        : 1539
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 7.633867e-04
+  Performance:
+    Pointwise Error (max)              : 3.428489e-04
+    CG Solve Time                      : 0.00266194 (0.0025928) sec
+    DoFs/Sec in CG                     : 445.682 (457.567) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 5 -local_nodes 4000 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 120159
+    Local Elements                     : 32
+    Owned nodes                        : 3249
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.020482e-02
+  Performance:
+    Pointwise Error (max)              : 5.453642e-03
+    CG Solve Time                      : 0.00462437 (0.0045979) sec
+    DoFs/Sec in CG                     : 519.678 (522.669) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 5 -local_nodes 8000 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 243399
+    Local Elements                     : 63
+    Owned nodes                        : 6569
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.675208e-02
+  Performance:
+    Pointwise Error (max)              : 5.514273e-03
+    CG Solve Time                      : 0.00725579 (0.00719762) sec
+    DoFs/Sec in CG                     : 670.909 (676.332) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 5 -local_nodes 16000 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 493039
+    Local Elements                     : 126
+    Owned nodes                        : 13664
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 3.137066e-04
+  Performance:
+    Pointwise Error (max)              : 7.965512e-05
+    CG Solve Time                      : 0.00866365 (0.00862551) sec
+    DoFs/Sec in CG                     : 1138.18 (1143.21) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 5 -local_nodes 32000 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 992319
+    Local Elements                     : 268
+    Owned nodes                        : 30179
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.187425e-02
+  Performance:
+    Pointwise Error (max)              : 3.653688e-03
+    CG Solve Time                      : 0.0219612 (0.0218954) sec
+    DoFs/Sec in CG                     : 903.701 (906.417) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 5 -local_nodes 64000 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 1997199
+    Local Elements                     : 510
+    Owned nodes                        : 58584
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.460978e-02
+  Performance:
+    Pointwise Error (max)              : 3.286068e-03
+    CG Solve Time                      : 0.0549042 (0.0548232) sec
+    DoFs/Sec in CG                     : 727.521 (728.597) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 6 -local_nodes 216 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 8
+    Global nodes                       : 5819
+    Local Elements                     : 0
+    Owned nodes                        : 0
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.844718e-02
+  Performance:
+    Pointwise Error (max)              : 1.730098e-02
+    CG Solve Time                      : 0.00131512 (0.00122643) sec
+    DoFs/Sec in CG                     : 88.494 (94.8937) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 6 -local_nodes 432 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 8
+    Global nodes                       : 12167
+    Local Elements                     : 2
+    Owned nodes                        : 275
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.036838e-02
+  Performance:
+    Pointwise Error (max)              : 6.561813e-03
+    CG Solve Time                      : 0.00180864 (0.00179553) sec
+    DoFs/Sec in CG                     : 134.543 (135.525) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 6 -local_nodes 864 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 8
+    Global nodes                       : 24863
+    Local Elements                     : 4
+    Owned nodes                        : 605
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.142295e-01
+  Performance:
+    Pointwise Error (max)              : 5.138994e-02
+    CG Solve Time                      : 0.00140238 (0.00139523) sec
+    DoFs/Sec in CG                     : 354.583 (356.401) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 6 -local_nodes 1728 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 8
+    Global nodes                       : 50807
+    Local Elements                     : 8
+    Owned nodes                        : 1331
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 5.355092e-02
+  Performance:
+    Pointwise Error (max)              : 2.370651e-02
+    CG Solve Time                      : 0.00213051 (0.00211763) sec
+    DoFs/Sec in CG                     : 476.947 (479.847) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 6 -local_nodes 3456 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 8
+    Global nodes                       : 103823
+    Local Elements                     : 16
+    Owned nodes                        : 2783
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 7.616007e-03
+  Performance:
+    Pointwise Error (max)              : 1.903479e-03
+    CG Solve Time                      : 0.00356245 (0.00350428) sec
+    DoFs/Sec in CG                     : 582.874 (592.55) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 6 -local_nodes 6912 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 8
+    Global nodes                       : 209855
+    Local Elements                     : 32
+    Owned nodes                        : 5819
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.363878e-01
+  Performance:
+    Pointwise Error (max)              : 5.404273e-02
+    CG Solve Time                      : 0.00421166 (0.00417209) sec
+    DoFs/Sec in CG                     : 996.542 (1006.) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 6 -local_nodes 13824 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 8
+    Global nodes                       : 424175
+    Local Elements                     : 63
+    Owned nodes                        : 11711
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 6.629689e-02
+  Performance:
+    Pointwise Error (max)              : 1.620147e-02
+    CG Solve Time                      : 0.00789499 (0.00783849) sec
+    DoFs/Sec in CG                     : 1074.54 (1082.29) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 6 -local_nodes 27648 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 8
+    Global nodes                       : 857375
+    Local Elements                     : 126
+    Owned nodes                        : 24191
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 7.462262e-03
+  Performance:
+    Pointwise Error (max)              : 9.934992e-04
+    CG Solve Time                      : 0.0217354 (0.0216796) sec
+    DoFs/Sec in CG                     : 788.919 (790.949) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 6 -local_nodes 55296 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 8
+    Global nodes                       : 1723775
+    Local Elements                     : 268
+    Owned nodes                        : 53081
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.200038e-01
+  Performance:
+    Pointwise Error (max)              : 5.709132e-02
+    CG Solve Time                      : 0.0431168 (0.0430293) sec
+    DoFs/Sec in CG                     : 799.584 (801.21) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 7 -local_nodes 343 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 8
+    Number of 1D Quadrature Points (q) : 9
+    Global nodes                       : 9477
+    Local Elements                     : 0
+    Owned nodes                        : 0
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 8.221473e-02
+  Performance:
+    Pointwise Error (max)              : 8.295112e-02
+    CG Solve Time                      : 0.00163388 (0.00151968) sec
+    DoFs/Sec in CG                     : 116.006 (124.724) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 7 -local_nodes 686 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 8
+    Number of 1D Quadrature Points (q) : 9
+    Global nodes                       : 19683
+    Local Elements                     : 2
+    Owned nodes                        : 468
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 3.555971e-02
+  Performance:
+    Pointwise Error (max)              : 2.006559e-02
+    CG Solve Time                      : 0.0025177 (0.00250769) sec
+    DoFs/Sec in CG                     : 156.357 (156.981) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 7 -local_nodes 1372 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 8
+    Number of 1D Quadrature Points (q) : 9
+    Global nodes                       : 40095
+    Local Elements                     : 4
+    Owned nodes                        : 1014
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.860513e-01
+  Performance:
+    Pointwise Error (max)              : 2.499670e-01
+    CG Solve Time                      : 0.00198269 (0.00197792) sec
+    DoFs/Sec in CG                     : 404.451 (405.426) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 7 -local_nodes 2744 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 8
+    Number of 1D Quadrature Points (q) : 9
+    Global nodes                       : 81675
+    Local Elements                     : 8
+    Owned nodes                        : 2197
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.146600e-01
+  Performance:
+    Pointwise Error (max)              : 6.299662e-02
+    CG Solve Time                      : 0.00188255 (0.00187302) sec
+    DoFs/Sec in CG                     : 867.705 (872.123) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 7 -local_nodes 5488 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 8
+    Number of 1D Quadrature Points (q) : 9
+    Global nodes                       : 166375
+    Local Elements                     : 16
+    Owned nodes                        : 4563
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.607940e-02
+  Performance:
+    Pointwise Error (max)              : 1.147271e-02
+    CG Solve Time                      : 0.00312257 (0.00308013) sec
+    DoFs/Sec in CG                     : 1065.63 (1080.31) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 7 -local_nodes 10976 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 8
+    Number of 1D Quadrature Points (q) : 9
+    Global nodes                       : 335775
+    Local Elements                     : 32
+    Owned nodes                        : 9477
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.722751e-01
+  Performance:
+    Pointwise Error (max)              : 2.935455e-01
+    CG Solve Time                      : 0.0053525 (0.00529766) sec
+    DoFs/Sec in CG                     : 1254.65 (1267.63) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 7 -local_nodes 21952 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 8
+    Number of 1D Quadrature Points (q) : 9
+    Global nodes                       : 677655
+    Local Elements                     : 63
+    Owned nodes                        : 19011
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.336656e-01
+  Performance:
+    Pointwise Error (max)              : 8.913570e-02
+    CG Solve Time                      : 0.0119486 (0.0118878) sec
+    DoFs/Sec in CG                     : 1134.28 (1140.09) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 7 -local_nodes 43904 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 8
+    Number of 1D Quadrature Points (q) : 9
+    Global nodes                       : 1367631
+    Local Elements                     : 126
+    Owned nodes                        : 39080
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.449353e-02
+  Performance:
+    Pointwise Error (max)              : 1.058022e-02
+    CG Solve Time                      : 0.0317497 (0.0316818) sec
+    DoFs/Sec in CG                     : 861.507 (863.355) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 7 -local_nodes 87808 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 8
+    Number of 1D Quadrature Points (q) : 9
+    Global nodes                       : 2747583
+    Local Elements                     : 268
+    Owned nodes                        : 85357
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 3.823790e-01
+  Performance:
+    Pointwise Error (max)              : 3.941617e-01
+    CG Solve Time                      : 0.0634387 (0.0633161) sec
+    DoFs/Sec in CG                     : 866.217 (867.894) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 8 -local_nodes 512 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 9
+    Number of 1D Quadrature Points (q) : 10
+    Global nodes                       : 14415
+    Local Elements                     : 0
+    Owned nodes                        : 0
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.528219e-01
+  Performance:
+    Pointwise Error (max)              : 2.917424e-01
+    CG Solve Time                      : 0.00210524 (0.00202298) sec
+    DoFs/Sec in CG                     : 136.944 (142.512) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 8 -local_nodes 1024 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 9
+    Number of 1D Quadrature Points (q) : 10
+    Global nodes                       : 29791
+    Local Elements                     : 2
+    Owned nodes                        : 735
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 7.917650e-02
+  Performance:
+    Pointwise Error (max)              : 8.872418e-02
+    CG Solve Time                      : 0.00342274 (0.00340819) sec
+    DoFs/Sec in CG                     : 174.077 (174.82) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 8 -local_nodes 2048 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 9
+    Number of 1D Quadrature Points (q) : 10
+    Global nodes                       : 60543
+    Local Elements                     : 4
+    Owned nodes                        : 1575
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.729306e-01
+  Performance:
+    Pointwise Error (max)              : 5.427130e-01
+    CG Solve Time                      : 0.00220919 (0.00219965) sec
+    DoFs/Sec in CG                     : 548.102 (550.479) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 8 -local_nodes 4096 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 9
+    Number of 1D Quadrature Points (q) : 10
+    Global nodes                       : 123039
+    Local Elements                     : 8
+    Owned nodes                        : 3375
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 1.962484e-01
+  Performance:
+    Pointwise Error (max)              : 2.721346e-01
+    CG Solve Time                      : 0.0024569 (0.00241899) sec
+    DoFs/Sec in CG                     : 1001.58 (1017.27) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 8 -local_nodes 8192 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 9
+    Number of 1D Quadrature Points (q) : 10
+    Global nodes                       : 250047
+    Local Elements                     : 16
+    Owned nodes                        : 6975
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 8.418192e-02
+  Performance:
+    Pointwise Error (max)              : 9.720335e-02
+    CG Solve Time                      : 0.00421739 (0.00416589) sec
+    DoFs/Sec in CG                     : 1185.79 (1200.45) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 8 -local_nodes 16384 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 9
+    Number of 1D Quadrature Points (q) : 10
+    Global nodes                       : 504063
+    Local Elements                     : 32
+    Owned nodes                        : 14415
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 3.602537e-01
+  Performance:
+    Pointwise Error (max)              : 5.909024e-01
+    CG Solve Time                      : 0.0075891 (0.00751996) sec
+    DoFs/Sec in CG                     : 1328.39 (1340.6) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 8 -local_nodes 32768 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 9
+    Number of 1D Quadrature Points (q) : 10
+    Global nodes                       : 1016127
+    Local Elements                     : 63
+    Owned nodes                        : 28847
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 2.073202e-01
+  Performance:
+    Pointwise Error (max)              : 2.712554e-01
+    CG Solve Time                      : 0.0165751 (0.0162878) sec
+    DoFs/Sec in CG                     : 1226.09 (1247.72) million
+
+Running test:
+mpirun -np 32 ./petsc-bps -ceed /cpu/self/xsmm/blocked -pc_type none -benchmark -degree 8 -local_nodes 65536 -problem bp3
+
+-- CEED Benchmark Problem 3 -- libCEED + PETSc --
+  PETSc:
+    PETSc Vec Type                     : mpi
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  Mesh:
+    Number of 1D Basis Nodes (p)       : 9
+    Number of 1D Quadrature Points (q) : 10
+    Global nodes                       : 2048383
+    Local Elements                     : 126
+    Owned nodes                        : 59087
+    DoF per node                       : 1
+  KSP:
+    KSP Type                           : cg
+    KSP Convergence                    : DIVERGED_ITS
+    Total KSP Iterations               : 20
+    Final rnorm                        : 9.573329e-02
+  Performance:
+    Pointwise Error (max)              : 9.673475e-02
+    CG Solve Time                      : 0.0416639 (0.0415845) sec
+    DoFs/Sec in CG                     : 983.289 (985.167) million
