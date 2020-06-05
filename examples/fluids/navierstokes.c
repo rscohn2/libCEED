@@ -164,16 +164,8 @@ problemData problemOptions[] = {
     .ics_loc                   = ICsDC_loc,
     .applyVol_rhs              = DC,
     .applyVol_rhs_loc          = DC_loc,
-  //.applyOut_rhs              = DC_Out,
-  //.applyOut_rhs_loc          = DC_Out_loc,
-  //.applyIn_rhs               = DC_In,
-  //.applyIn_rhs_loc           = DC_In_loc,
     .applyVol_ifunction        = IFunction_DC,
     .applyVol_ifunction_loc    = IFunction_DC_loc,
-  //.applyOut_ifunction        = IFunction_DC_Out,
-  //.applyOut_ifunction_loc    = IFunction_DC_Out_loc,
-  //.applyIn_ifunction         = IFunction_DC_In,
-  //.applyIn_ifunction_loc     = IFunction_DC_In_loc,
     .bc                        = Exact_DC,
     .non_zero_time             = PETSC_FALSE,
   },
@@ -1609,11 +1601,6 @@ int main(int argc, char **argv) {
     if (qf_rhsVol) CeedQFunctionSetContext(qf_rhsVol, &ctxNS, sizeof ctxNS);
     if (qf_ifunctionVol) CeedQFunctionSetContext(qf_ifunctionVol, &ctxNS,
           sizeof ctxNS);
-    if (qf_rhsOut) CeedQFunctionSetContext(qf_rhsOut, &ctxNS, sizeof ctxNS);
-    if (qf_ifunctionOut) CeedQFunctionSetContext(qf_ifunctionOut, &ctxNS,
-          sizeof ctxNS);
-    if (qf_rhsIn) CeedQFunctionSetContext(qf_rhsIn, &ctxIn, sizeof ctxIn);
-    if (qf_ifunctionIn) CeedQFunctionSetContext(qf_ifunctionIn, &ctxIn, sizeof ctxIn);
     break;
   case NS_ADVECTION:
   case NS_ADVECTION2D:
