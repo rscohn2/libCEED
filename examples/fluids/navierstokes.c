@@ -76,6 +76,17 @@ static const char *const problemTypes[] = {
   "problemType", "NS_", NULL
 };
 
+// Wind Options for Advection
+typedef enum {
+  ADVECTION_WIND_ROTATION = 0,
+  ADVECTION_WIND_UNIFORM = 1,
+} WindType;
+static const char *const WindTypes[] = {
+  "rotation",
+  "uniform",
+  "WindType", "ADVECTION_WIND_", NULL
+};
+
 typedef enum {
   STAB_NONE = 0,
   STAB_SU = 1,   // Streamline Upwind
@@ -904,6 +915,7 @@ int main(int argc, char **argv) {
               kgpersquaredms, Joulepercubicm;
   problemType problemChoice;
   problemData *problem = NULL;
+  WindType wind_type;
   StabilizationType stab;
   testType testChoice;
   testData *test = NULL;
@@ -956,7 +968,7 @@ int main(int argc, char **argv) {
   PetscInt degree        = 1;        // -
   PetscInt qextra        = 2;        // -
   PetscInt qextraSur     = 2;        // -
-  PetscReal center[3], dc_axis[3] = {0, 0, 0};
+  PetscReal center[3], dc_axis[3] = {0, 0, 0}, wind[3] = {1., 0, 0};
 
   ierr = PetscInitialize(&argc, &argv, NULL, help);
   if (ierr) return ierr;
@@ -983,6 +995,14 @@ int main(int argc, char **argv) {
                           problemTypes, (PetscEnum)problemChoice,
                           (PetscEnum *)&problemChoice, NULL); CHKERRQ(ierr);
   problem = &problemOptions[problemChoice];
+  ierr = PetscOptionsEnum("-problem_advection_wind", "Wind type in Advection",
+                          NULL, WindTypes, (PetscEnum)(wind_type = ADVECTION_WIND_ROTATION),
+                          (PetscEnum *)&wind_type, NULL); CHKERRQ(ierr);
+  if (wind_type == ADVECTION_WIND_UNIFORM) {
+    PetscInt n = problem->dim;
+    ierr = PetscOptionsRealArray("-problem_advection_wind_uniform", "Constant wind vector",
+                                 NULL, wind, &n, NULL); CHKERRQ(ierr);
+  }
   ierr = PetscOptionsEnum("-stab", "Stabilization method", NULL,
                           StabilizationTypes, (PetscEnum)(stab = STAB_NONE),
                           (PetscEnum *)&stab, NULL); CHKERRQ(ierr);
@@ -1153,6 +1173,47 @@ int main(int argc, char **argv) {
   CHKERRQ(ierr);
   ierr = PetscOptionsEnd(); CHKERRQ(ierr);
 
+  // Setup BCs for Rotation or Uniform wind types in Advection (3d)
+  if (problemChoice == NS_ADVECTION) {
+    switch (wind_type) {
+    case ADVECTION_WIND_ROTATION:
+      // No in/out-flow
+      bc.ninflow = bc.noutflow = 0;
+      break;
+    case ADVECTION_WIND_UNIFORM:
+      // Face 6 is inflow and Face 5 is outflow
+      bc.ninflow = bc.noutflow = 1;
+      bc.inflow[0] = 6; bc.outflow[0] = 5;
+      // Faces 3 and 4 are slip
+      bc.nslip[0] = bc.nslip[2] = 0; bc.nslip[1] = 2;
+      bc.slips[1][0] = 3; bc.slips[1][1] = 4;
+      // Faces 1 and 2 are wall
+      bc.nwall = 2;
+      bc.walls[0] = 1; bc.walls[1] = 2;
+      break;
+    }
+  }
+  // Setup BCs for Rotation or Uniform wind types in Advection (2d)
+  if (problemChoice == NS_ADVECTION2D) {
+    switch (wind_type) {
+    case ADVECTION_WIND_ROTATION:
+      // No in/out-flow
+      bc.ninflow = bc.noutflow = 0;
+      break;
+    case ADVECTION_WIND_UNIFORM:
+      // Face 4 is inflow and Face 2 is outflow
+      bc.ninflow = bc.noutflow = 1;
+      bc.inflow[0] = 4; bc.outflow[0] = 2;
+      // Face 3 is slip
+      bc.nslip[0] = bc.nslip[2] = 0; bc.nslip[1] = 1;
+      bc.slips[1][0] = 3;
+      // Face 1 is wall
+      bc.nwall = 1;
+      bc.walls[0] = 1;
+      break;
+    }
+  }
+
   // Define derived units
   Pascal = kilogram / (meter * PetscSqr(second));
   JperkgK =  PetscSqr(meter) / (PetscSqr(second) * Kelvin);
@@ -1206,7 +1267,11 @@ int main(int argc, char **argv) {
     .dc_axis[0] = dc_axis[0],
     .dc_axis[1] = dc_axis[1],
     .dc_axis[2] = dc_axis[2],
+    .wind[0] = wind[0],
+    .wind[1] = wind[1],
+    .wind[2] = wind[2],
     .time = 0,
+    .wind_type = wind_type,
   };
 
   // Create the mesh

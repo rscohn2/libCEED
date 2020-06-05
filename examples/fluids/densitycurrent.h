@@ -53,7 +53,9 @@ struct SetupContext_ {
   CeedScalar periodicity2;
   CeedScalar center[3];
   CeedScalar dc_axis[3];
+  CeedScalar wind[3];
   CeedScalar time;
+  int wind_type;
 };
 #endif
 
