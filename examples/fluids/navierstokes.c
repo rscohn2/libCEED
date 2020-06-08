@@ -273,12 +273,11 @@ static PetscErrorCode CreateRestrictionFromPlex(Ceed ceed, DM dm, CeedInt P,
     CeedInt height, DMLabel domainLabel, CeedInt value,
     CeedElemRestriction *Erestrict) {
 
-  PetscSection   section;
-  PetscInt       p, Nelem, Ndof, *erestrict, eoffset, nfields, dim,
-                 depth;
-  DMLabel        depthLabel;
-  IS             depthIS, iterIS;
-  Vec            Uloc;
+  PetscSection section;
+  PetscInt p, Nelem, Ndof, *erestrict, eoffset, nfields, dim, depth;
+  DMLabel depthLabel;
+  IS depthIS, iterIS;
+  Vec Uloc;
   const PetscInt *iterIndices;
   PetscErrorCode ierr;
 
@@ -348,7 +347,7 @@ static PetscErrorCode CreateRestrictionFromPlex(Ceed ceed, DM dm, CeedInt P,
         for (PetscInt j=0; j<ncomp[f]; j++) {
           if (Involute(indices[fieldoff[f]*nnodes + ii*ncomp[f] + j])
               != Involute(indices[ii*ncomp[0]]) + fieldoff[f] + j)
-            SETERRQ4(PETSC_COMM_SELF,PETSC_ERR_ARG_INCOMP,
+            SETERRQ4(PETSC_COMM_SELF, PETSC_ERR_ARG_INCOMP,
                      "Cell %D closure indices not interlaced for node %D field %D component %D",
                      c, ii, f, j);
         }
@@ -416,13 +415,12 @@ static PetscErrorCode CreateOperatorForDomain(Ceed ceed, DM dm, CeedOperator op_
 
   CeedElemRestriction restrictxOut[6], restrictqOut[6], restrictqdiOut[6],
                       restrictxIn[6], restrictqIn[6], restrictqdiIn[6];
-  PetscInt localNelemOut[6], localNelemIn[6];
+  PetscInt lsize, localNelemOut[6], localNelemIn[6];
   Vec Xloc;
   CeedVector xcorners, qdataOut[6], qdataIn[6];
   CeedOperator op_setupOut[6], op_applyOut[6], op_setupIn[6], op_applyIn[6];
   DMLabel domainLabel;
   PetscScalar *x;
-  PetscInt lsize;
   PetscErrorCode ierr;
 
   PetscFunctionBeginUser;
@@ -513,13 +511,13 @@ static int CreateVectorFromPetscVec(Ceed ceed, Vec p, CeedVector *v) {
 
 static int VectorPlacePetscVec(CeedVector c, Vec p) {
   PetscErrorCode ierr;
-  PetscInt mceed,mpetsc;
+  PetscInt mceed, mpetsc;
   PetscScalar *a;
 
   PetscFunctionBeginUser;
   ierr = CeedVectorGetLength(c, &mceed); CHKERRQ(ierr);
   ierr = VecGetLocalSize(p, &mpetsc); CHKERRQ(ierr);
-  if (mceed != mpetsc) SETERRQ2(PETSC_COMM_SELF,PETSC_ERR_ARG_INCOMP,
+  if (mceed != mpetsc) SETERRQ2(PETSC_COMM_SELF, PETSC_ERR_ARG_INCOMP,
                                   "Cannot place PETSc Vec of length %D in CeedVector of length %D",
                                   mpetsc, mceed);
   ierr = VecGetArray(p, &a); CHKERRQ(ierr);
@@ -810,7 +808,7 @@ static PetscErrorCode SetUpDM(DM dm, problemData *problem, PetscInt degree,
                                  PETSC_FALSE, degree, PETSC_DECIDE,
                                  &fe); CHKERRQ(ierr);
     ierr = PetscObjectSetName((PetscObject)fe, "Q"); CHKERRQ(ierr);
-    ierr = DMAddField(dm,NULL,(PetscObject)fe); CHKERRQ(ierr);
+    ierr = DMAddField(dm, NULL,(PetscObject)fe); CHKERRQ(ierr);
     ierr = DMCreateDS(dm); CHKERRQ(ierr);
     {
       PetscInt comps[1] = {1};
@@ -1699,7 +1697,7 @@ int main(int argc, char **argv) {
       ierr = TSSetRHSFunction(ts, NULL, RHS_NS, &user); CHKERRQ(ierr);
     }
   } else {
-    if (!user->op_rhs) SETERRQ(comm,PETSC_ERR_ARG_NULL,
+    if (!user->op_rhs) SETERRQ(comm, PETSC_ERR_ARG_NULL,
                                  "Problem does not provide RHSFunction");
     ierr = TSSetType(ts, TSRK); CHKERRQ(ierr);
     ierr = TSRKSetType(ts, TSRK5F); CHKERRQ(ierr);
@@ -1773,7 +1771,7 @@ int main(int argc, char **argv) {
   }
 
   // Output Statistics
-  ierr = TSGetStepNumber(ts,&steps); CHKERRQ(ierr);
+  ierr = TSGetStepNumber(ts, &steps); CHKERRQ(ierr);
   if (testChoice == TEST_NONE) {
     ierr = PetscPrintf(PETSC_COMM_WORLD,
                        "Time integrator took %D time steps to reach final time %g\n",
