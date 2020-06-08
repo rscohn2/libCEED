@@ -79,11 +79,11 @@ static const char *const problemTypes[] = {
 // Wind Options for Advection
 typedef enum {
   ADVECTION_WIND_ROTATION = 0,
-  ADVECTION_WIND_UNIFORM = 1,
+  ADVECTION_WIND_TRANSLATION = 1,
 } WindType;
 static const char *const WindTypes[] = {
   "rotation",
-  "uniform",
+  "translation",
   "WindType", "ADVECTION_WIND_", NULL
 };
 
@@ -988,9 +988,9 @@ int main(int argc, char **argv) {
   ierr = PetscOptionsEnum("-problem_advection_wind", "Wind type in Advection",
                           NULL, WindTypes, (PetscEnum)(wind_type = ADVECTION_WIND_ROTATION),
                           (PetscEnum *)&wind_type, NULL); CHKERRQ(ierr);
-  if (wind_type == ADVECTION_WIND_UNIFORM) {
+  if (wind_type == ADVECTION_WIND_TRANSLATION) {
     PetscInt n = problem->dim;
-    ierr = PetscOptionsRealArray("-problem_advection_wind_uniform", "Constant wind vector",
+    ierr = PetscOptionsRealArray("-problem_advection_wind_translation", "Constant wind vector",
                                  NULL, wind, &n, NULL); CHKERRQ(ierr);
   }
   ierr = PetscOptionsEnum("-stab", "Stabilization method", NULL,
@@ -1163,14 +1163,14 @@ int main(int argc, char **argv) {
   CHKERRQ(ierr);
   ierr = PetscOptionsEnd(); CHKERRQ(ierr);
 
-  // Setup BCs for Rotation or Uniform wind types in Advection (3d)
+  // Setup BCs for Rotation or Translation wind types in Advection (3d)
   if (problemChoice == NS_ADVECTION) {
     switch (wind_type) {
     case ADVECTION_WIND_ROTATION:
       // No in/out-flow
       bc.ninflow = bc.noutflow = 0;
       break;
-    case ADVECTION_WIND_UNIFORM:
+    case ADVECTION_WIND_TRANSLATION:
       // Face 6 is inflow and Face 5 is outflow
       bc.ninflow = bc.noutflow = 1;
       bc.inflow[0] = 6; bc.outflow[0] = 5;
@@ -1183,14 +1183,14 @@ int main(int argc, char **argv) {
       break;
     }
   }
-  // Setup BCs for Rotation or Uniform wind types in Advection (2d)
+  // Setup BCs for Rotation or Translation wind types in Advection (2d)
   if (problemChoice == NS_ADVECTION2D) {
     switch (wind_type) {
     case ADVECTION_WIND_ROTATION:
       // No in/out-flow
       bc.ninflow = bc.noutflow = 0;
       break;
-    case ADVECTION_WIND_UNIFORM:
+    case ADVECTION_WIND_TRANSLATION:
       // Face 4 is inflow and Face 2 is outflow
       bc.ninflow = bc.noutflow = 1;
       bc.inflow[0] = 4; bc.outflow[0] = 2;

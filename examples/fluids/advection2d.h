@@ -51,7 +51,7 @@ struct SetupContext_ {
   CeedScalar dc_axis[3];
   CeedScalar wind[3];
   CeedScalar time;
-  int wind_type;
+  int wind_type; // See WindType: 0=ROTATION, 1=TRANSLATION
 };
 #endif
 
@@ -115,7 +115,7 @@ static inline int Exact_Advection2d(CeedInt dim, CeedScalar time,
 
   // Initial/Boundary Conditions
   switch (context->wind_type) {
-  case 0:
+  case 0:    // Rotation
     q[0] = 1.;
     q[1] = -(y - center[1]);
     q[2] =  (x - center[0]);
@@ -131,7 +131,7 @@ static inline int Exact_Advection2d(CeedInt dim, CeedScalar time,
     E = (r <= rc) ? .5 + .5*cos(r*M_PI/rc) : 0;
     if (q[4] < E) q[4] = E;
     break;
-  case 1:
+  case 1:    // Translation
     q[0] = 1.;
     q[1] = wind[0];
     q[2] = wind[1];
