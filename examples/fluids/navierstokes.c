@@ -1006,28 +1006,6 @@ int main(int argc, char **argv) {
   {
     PetscInt len;
     PetscBool flg;
-    ierr = PetscOptionsIntArray("-bc_outflow",
-                              "Use outflow boundary conditions on this list of faces",
-                              NULL, bc.outflow,
-                              (len = sizeof(bc.outflow) / sizeof(bc.outflow[0]),
-                              &len), &flg); CHKERRQ(ierr);
-    if (flg) {
-      bc.noutflow = len;
-      // Using outflow boundaries disables automatic wall/slip boundaries (they must be set explicitly)
-      bc.nwall = 0;
-      bc.nslip[0] = bc.nslip[1] = bc.nslip[2] = 0;
-    }
-    ierr = PetscOptionsIntArray("-bc_inflow",
-                              "Use inflow boundary conditions on this list of faces",
-                              NULL, bc.inflow,
-                              (len = sizeof(bc.inflow) / sizeof(bc.inflow[0]),
-                              &len), &flg); CHKERRQ(ierr);
-    if (flg) {
-      bc.ninflow = len;
-      // Using inflow boundaries disables automatic wall/slip boundaries (they must be set explicitly)
-      bc.nwall = 0;
-      bc.nslip[0] = bc.nslip[1] = bc.nslip[2] = 0;
-    }
     ierr = PetscOptionsIntArray("-bc_wall",
                                 "Use wall boundary conditions on this list of faces",
                                 NULL, bc.walls,
