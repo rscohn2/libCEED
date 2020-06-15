@@ -76,7 +76,6 @@ struct SurfaceContext_ {
   CeedScalar rho_wind;
   CeedScalar strong_form;
   CeedScalar wind[3];
-  int wind_type; // See WindType: 0=ROTATION, 1=TRANSLATION
   PetscBool implicit;
 };
 #endif
@@ -460,7 +459,6 @@ CEED_QFUNCTION(Advection2d_Sur)(void *ctx, CeedInt Q,
   const CeedScalar strong_form = context->strong_form;
   const CeedScalar *wind = context->wind;
   const CeedScalar gamma    = cp / cv;
-  const int wind_type = context->wind_type;
   const PetscBool implicit = context->implicit;
 
   CeedPragmaSIMD

@@ -1480,7 +1480,6 @@ int main(int argc, char **argv) {
     .wind[0] = wind[0],
     .wind[1] = wind[1],
     .wind[2] = wind[2],
-    .wind_type = wind_type,
     .implicit = implicit,
   };
   switch (problemChoice) {
