@@ -458,7 +458,7 @@ CEED_QFUNCTION(Advection2d_Sur)(void *ctx, CeedInt Q,
   const CeedScalar rho_wind = context->rho_wind;
   const CeedScalar strong_form = context->strong_form;
   const CeedScalar *wind = context->wind;
-  const CeedScalar gamma    = cp / cv;
+  const CeedScalar gamma = cp / cv;
   const PetscBool implicit = context->implicit;
 
   CeedPragmaSIMD
