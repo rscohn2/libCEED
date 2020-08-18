@@ -447,7 +447,7 @@ static PetscErrorCode CreateOperatorForDomain(Ceed ceed, DM dm, SimpleBC bc,
     ierr = DMGetCoordinatesLocal(dm, &Xloc); CHKERRQ(ierr);
     ierr = VecGetLocalSize(Xloc, &lsize); CHKERRQ(ierr);
     ierr = CeedVectorCreate(ceed, lsize, &xcorners); CHKERRQ(ierr);
-    ierr = VecGetArray(Xloc, &x); CHKERRQ(ierr);
+    ierr = VecGetArrayInPlace(Xloc, &x); CHKERRQ(ierr);
     CeedVectorSetArray(xcorners, CEED_MEM_HOST, CEED_USE_POINTER, x);
     ierr = DMGetLabel(dm, "Face Sets", &domainLabel); CHKERRQ(ierr);
     ierr = DMGetDimension(dm, &dim); CHKERRQ(ierr);
@@ -514,7 +514,7 @@ static int VectorPlacePetscVec(CeedVector c, Vec p) {
   if (mceed != mpetsc) SETERRQ2(PETSC_COMM_SELF, PETSC_ERR_ARG_INCOMP,
                                   "Cannot place PETSc Vec of length %D in CeedVector of length %D",
                                   mpetsc, mceed);
-  ierr = VecGetArray(p, &a); CHKERRQ(ierr);
+  ierr = VecGetArrayInPlace(p, &a); CHKERRQ(ierr);
   CeedVectorSetArray(c, CEED_MEM_HOST, CEED_USE_POINTER, a);
   PetscFunctionReturn(0);
 }
@@ -551,8 +551,8 @@ static PetscErrorCode RHS_NS(TS ts, PetscReal t, Vec Q, Vec G, void *userData) {
   ierr = VecZeroEntries(Gloc); CHKERRQ(ierr);
 
   // Ceed Vectors
-  ierr = VecGetArrayRead(Qloc, (const PetscScalar **)&q); CHKERRQ(ierr);
-  ierr = VecGetArray(Gloc, &g); CHKERRQ(ierr);
+  ierr = VecGetArrayReadInPlace(Qloc, (const PetscScalar **)&q); CHKERRQ(ierr);
+  ierr = VecGetArrayInPlace(Gloc, &g); CHKERRQ(ierr);
   CeedVectorSetArray(user->qceed, CEED_MEM_HOST, CEED_USE_POINTER, q);
   CeedVectorSetArray(user->gceed, CEED_MEM_HOST, CEED_USE_POINTER, g);
 
@@ -561,8 +561,8 @@ static PetscErrorCode RHS_NS(TS ts, PetscReal t, Vec Q, Vec G, void *userData) {
                     CEED_REQUEST_IMMEDIATE);
 
   // Restore vectors
-  ierr = VecRestoreArrayRead(Qloc, (const PetscScalar **)&q); CHKERRQ(ierr);
-  ierr = VecRestoreArray(Gloc, &g); CHKERRQ(ierr);
+  ierr = VecRestoreArrayReadInPlace(Qloc, (const PetscScalar **)&q); CHKERRQ(ierr);
+  ierr = VecRestoreArrayInPlace(Gloc, &g); CHKERRQ(ierr);
 
   ierr = VecZeroEntries(G); CHKERRQ(ierr);
   ierr = DMLocalToGlobal(user->dm, Gloc, ADD_VALUES, G); CHKERRQ(ierr);
@@ -598,9 +598,9 @@ static PetscErrorCode IFunction_NS(TS ts, PetscReal t, Vec Q, Vec Qdot, Vec G,
   ierr = VecZeroEntries(Gloc); CHKERRQ(ierr);
 
   // Ceed Vectors
-  ierr = VecGetArrayRead(Qloc, &q); CHKERRQ(ierr);
-  ierr = VecGetArrayRead(Qdotloc, &qdot); CHKERRQ(ierr);
-  ierr = VecGetArray(Gloc, &g); CHKERRQ(ierr);
+  ierr = VecGetArrayReadInPlace(Qloc, &q); CHKERRQ(ierr);
+  ierr = VecGetArrayReadInPlace(Qdotloc, &qdot); CHKERRQ(ierr);
+  ierr = VecGetArrayInPlace(Gloc, &g); CHKERRQ(ierr);
   CeedVectorSetArray(user->qceed, CEED_MEM_HOST, CEED_USE_POINTER,
                      (PetscScalar *)q);
   CeedVectorSetArray(user->qdotceed, CEED_MEM_HOST, CEED_USE_POINTER,
@@ -612,9 +612,9 @@ static PetscErrorCode IFunction_NS(TS ts, PetscReal t, Vec Q, Vec Qdot, Vec G,
                     CEED_REQUEST_IMMEDIATE);
 
   // Restore vectors
-  ierr = VecRestoreArrayRead(Qloc, &q); CHKERRQ(ierr);
-  ierr = VecRestoreArrayRead(Qdotloc, &qdot); CHKERRQ(ierr);
-  ierr = VecRestoreArray(Gloc, &g); CHKERRQ(ierr);
+  ierr = VecRestoreArrayReadInPlace(Qloc, &q); CHKERRQ(ierr);
+  ierr = VecRestoreArrayReadInPlace(Qdotloc, &qdot); CHKERRQ(ierr);
+  ierr = VecRestoreArrayInPlace(Gloc, &g); CHKERRQ(ierr);
 
   ierr = VecZeroEntries(G); CHKERRQ(ierr);
   ierr = DMLocalToGlobal(user->dm, Gloc, ADD_VALUES, G); CHKERRQ(ierr);
