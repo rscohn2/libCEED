@@ -1502,19 +1502,21 @@ int main(int argc, char **argv) {
   }
 
   // Create CEED Operator for the whole domain
-  if (!implicit)
+  if (!implicit) {
     ierr = CreateOperatorForDomain(ceed, dm, &bc, wind_type, user->op_rhs_vol,
                                    qf_applySur, qf_setupSur,
                                    height, numP_Sur, numQ_Sur, qdatasizeSur,
                                    NqptsSur, basisxSur, basisqSur,
                                    &user->op_rhs); CHKERRQ(ierr);
-  if (implicit)
+  }
+  if (implicit) {
     ierr = CreateOperatorForDomain(ceed, dm, &bc, wind_type,
                                    user->op_ifunction_vol,
                                    qf_applySur, qf_setupSur,
                                    height, numP_Sur, numQ_Sur, qdatasizeSur,
                                    NqptsSur, basisxSur, basisqSur,
                                    &user->op_ifunction); CHKERRQ(ierr);
+  }
   // Set up contex for QFunctions
   CeedQFunctionContextCreate(ceed, &ctxSetup);
   CeedQFunctionContextSetData(ctxSetup, CEED_MEM_HOST, CEED_USE_POINTER,
