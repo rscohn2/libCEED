@@ -1247,6 +1247,9 @@ int main(int argc, char **argv) {
   ierr = DMLocalizeCoordinates(dm); CHKERRQ(ierr);
   ierr = DMSetFromOptions(dm); CHKERRQ(ierr);
   ierr = SetUpDM(dm, problem, degree, &bc, &ctxSetupData); CHKERRQ(ierr);
+  if (memTypeRequested == CEED_MEM_DEVICE) {
+    ierr = DMSetVecType(dm, VECCUDA); CHKERRQ(ierr);
+  }
 
   // Refine DM for high-order viz
   dmviz = NULL;
@@ -1268,6 +1271,9 @@ int main(int argc, char **argv) {
       if (i + 1 == viz_refine) d = 1;
       ierr = SetUpDM(dmhierarchy[i+1], problem, d, &bc, &ctxSetupData);
       CHKERRQ(ierr);
+      if (memTypeRequested == CEED_MEM_DEVICE) {
+        ierr = DMSetVecType(dmhierarchy[i+1], VECCUDA); CHKERRQ(ierr);
+      }
       ierr = DMCreateInterpolation(dmhierarchy[i], dmhierarchy[i+1],
                                    &interp_next, NULL); CHKERRQ(ierr);
       if (!i) interpviz = interp_next;
