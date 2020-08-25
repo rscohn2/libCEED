@@ -559,8 +559,9 @@ static PetscErrorCode RHS_NS(TS ts, PetscReal t, Vec Q, Vec G, void *userData) {
   // Apply CEED operator
   CeedOperatorApply(user->op_rhs, user->qceed, user->gceed,
                     CEED_REQUEST_IMMEDIATE);
-
   // Restore vectors
+  CeedVectorTakeArray(user->qceed, CEED_MEM_HOST, NULL);
+  CeedVectorTakeArray(user->gceed, CEED_MEM_HOST, NULL);
   ierr = VecRestoreArrayReadInPlace(Qloc, (const PetscScalar **)&q); CHKERRQ(ierr);
   ierr = VecRestoreArrayInPlace(Gloc, &g); CHKERRQ(ierr);
 
@@ -612,6 +613,9 @@ static PetscErrorCode IFunction_NS(TS ts, PetscReal t, Vec Q, Vec Qdot, Vec G,
                     CEED_REQUEST_IMMEDIATE);
 
   // Restore vectors
+  CeedVectorTakeArray(user->qceed, CEED_MEM_HOST, NULL);
+  CeedVectorTakeArray(user->qdotceed, CEED_MEM_HOST, NULL);
+  CeedVectorTakeArray(user->gceed, CEED_MEM_HOST, NULL);
   ierr = VecRestoreArrayReadInPlace(Qloc, &q); CHKERRQ(ierr);
   ierr = VecRestoreArrayReadInPlace(Qdotloc, &qdot); CHKERRQ(ierr);
   ierr = VecRestoreArrayInPlace(Gloc, &g); CHKERRQ(ierr);
@@ -778,6 +782,7 @@ static PetscErrorCode ComputeLumpedMassMatrix(Ceed ceed, DM dm,
     CeedElemRestrictionCreateVector(restrictq, &onesvec, NULL);
     CeedVectorSetValue(onesvec, 1.0);
     CeedOperatorApply(op_mass, onesvec, mceed, CEED_REQUEST_IMMEDIATE);
+    CeedVectorTakeArray(mceed, CEED_MEM_HOST, NULL);
     CeedVectorDestroy(&onesvec);
     CeedOperatorDestroy(&op_mass);
     CeedVectorDestroy(&mceed);
