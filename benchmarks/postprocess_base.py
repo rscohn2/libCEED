@@ -18,12 +18,17 @@
 import pandas as pd
 import fileinput
 import pprint
+import os.path
 
 # Read all input files specified on the command line, or stdin and parse
 # the content, storing it as a pandas dataframe
 
-
 def read_logs(files=None):
+    df1 = read_logs_petsc([f for f in files if os.path.splitext(f)[1] in (".txt", ".log")])
+    df2 = read_logs_json([f for f in files if os.path.splitext(f)[1] == ".json"])
+    return df1 + df2
+
+def read_logs_petsc(files):
     """Read all input files and return pandas DataFrame"""
     data_default = dict(
         file='unknown',
