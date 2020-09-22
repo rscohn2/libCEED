@@ -503,10 +503,11 @@ static int CreateVectorFromPetscVec(Ceed ceed, Vec p, CeedVector *v) {
   PetscFunctionReturn(0);
 }
 
-static int VectorPlacePetscVec(CeedVector c, Vec p) {
+static int VectorPlacePetscVec(Ceed ceed, CeedVector c, Vec p) {
   PetscErrorCode ierr;
   PetscInt mceed, mpetsc;
   PetscScalar *a;
+  CeedMemType memTypeRequested;
 
   PetscFunctionBeginUser;
   ierr = CeedVectorGetLength(c, &mceed); CHKERRQ(ierr);
@@ -515,7 +516,9 @@ static int VectorPlacePetscVec(CeedVector c, Vec p) {
                                   "Cannot place PETSc Vec of length %D in CeedVector of length %D",
                                   mpetsc, mceed);
   ierr = VecGetArrayInPlace(p, &a); CHKERRQ(ierr);
-  CeedVectorSetArray(c, CEED_MEM_HOST, CEED_USE_POINTER, a);
+
+  CeedGetPreferredMemType(ceed, &memTypeRequested);
+  CeedVectorSetArray(c, memTypeRequested, CEED_USE_POINTER, a);
   PetscFunctionReturn(0);
 }
 
@@ -709,7 +712,7 @@ static PetscErrorCode TSMonitor_NS(TS ts, PetscInt stepno, PetscReal time,
   PetscFunctionReturn(0);
 }
 
-static PetscErrorCode ICs_FixMultiplicity(CeedOperator op_ics,
+static PetscErrorCode ICs_FixMultiplicity(Ceed ceed, CeedOperator op_ics,
     CeedVector xcorners, CeedVector q0ceed, DM dm, Vec Qloc, Vec Q,
     CeedElemRestriction restrictq, CeedQFunctionContext ctxSetup, CeedScalar time) {
   PetscErrorCode ierr;
@@ -722,7 +725,7 @@ static PetscErrorCode ICs_FixMultiplicity(CeedOperator op_ics,
   CeedQFunctionContextRestoreData(ctxSetup, (void **)&ctxSetupData);
 
   ierr = VecZeroEntries(Qloc); CHKERRQ(ierr);
-  ierr = VectorPlacePetscVec(q0ceed, Qloc); CHKERRQ(ierr);
+  ierr = VectorPlacePetscVec(ceed, q0ceed, Qloc); CHKERRQ(ierr);
   CeedOperatorApply(op_ics, xcorners, q0ceed, CEED_REQUEST_IMMEDIATE);
   ierr = VecZeroEntries(Q); CHKERRQ(ierr);
   ierr = DMLocalToGlobal(dm, Qloc, ADD_VALUES, Q); CHKERRQ(ierr);
@@ -730,7 +733,7 @@ static PetscErrorCode ICs_FixMultiplicity(CeedOperator op_ics,
   // Fix multiplicity for output of ICs
   ierr = DMGetLocalVector(dm, &MultiplicityLoc); CHKERRQ(ierr);
   CeedElemRestrictionCreateVector(restrictq, &multlvec, NULL);
-  ierr = VectorPlacePetscVec(multlvec, MultiplicityLoc); CHKERRQ(ierr);
+  ierr = VectorPlacePetscVec(ceed, multlvec, MultiplicityLoc); CHKERRQ(ierr);
   CeedElemRestrictionGetMultiplicity(restrictq, multlvec);
   CeedVectorDestroy(&multlvec);
   ierr = DMGetGlobalVector(dm, &Multiplicity); CHKERRQ(ierr);
@@ -774,7 +777,7 @@ static PetscErrorCode ComputeLumpedMassMatrix(Ceed ceed, DM dm,
   ierr = DMGetLocalVector(dm, &Mloc); CHKERRQ(ierr);
   ierr = VecZeroEntries(Mloc); CHKERRQ(ierr);
   CeedElemRestrictionCreateVector(restrictq, &mceed, NULL);
-  ierr = VectorPlacePetscVec(mceed, Mloc); CHKERRQ(ierr);
+  ierr = VectorPlacePetscVec(ceed, mceed, Mloc); CHKERRQ(ierr);
 
   {
     // Compute a lumped mass matrix
@@ -1598,15 +1601,15 @@ int main(int argc, char **argv) {
   // Set up state global and local vectors
   ierr = VecZeroEntries(Q); CHKERRQ(ierr);
 
-  ierr = VectorPlacePetscVec(q0ceed, Qloc); CHKERRQ(ierr);
+  ierr = VectorPlacePetscVec(ceed, q0ceed, Qloc); CHKERRQ(ierr);
 
   // Apply Setup Ceed Operators
-  ierr = VectorPlacePetscVec(xcorners, Xloc); CHKERRQ(ierr);
+  ierr = VectorPlacePetscVec(ceed, xcorners, Xloc); CHKERRQ(ierr);
   CeedOperatorApply(op_setupVol, xcorners, qdata, CEED_REQUEST_IMMEDIATE);
   ierr = ComputeLumpedMassMatrix(ceed, dm, restrictq, basisq, restrictqdi, qdata,
                                  user->M); CHKERRQ(ierr);
 
-  ierr = ICs_FixMultiplicity(op_ics, xcorners, q0ceed, dm, Qloc, Q, restrictq,
+  ierr = ICs_FixMultiplicity(ceed, op_ics, xcorners, q0ceed, dm, Qloc, Q, restrictq,
                              ctxSetup, 0.0); CHKERRQ(ierr);
   if (1) { // Record boundary values from initial condition and override DMPlexInsertBoundaryValues()
     // We use this for the main simulation DM because the reference DMPlexInsertBoundaryValues() is very slow.  If we
@@ -1712,7 +1715,7 @@ int main(int argc, char **argv) {
     ierr = DMGetLocalVector(dm, &Qexactloc); CHKERRQ(ierr);
     ierr = VecGetSize(Qexactloc, &lnodes); CHKERRQ(ierr);
 
-    ierr = ICs_FixMultiplicity(op_ics, xcorners, q0ceed, dm, Qexactloc, Qexact,
+    ierr = ICs_FixMultiplicity(ceed, op_ics, xcorners, q0ceed, dm, Qexactloc, Qexact,
                                restrictq, ctxSetup, ftime); CHKERRQ(ierr);
 
     ierr = VecAXPY(Q, -1.0, Qexact);  CHKERRQ(ierr);
