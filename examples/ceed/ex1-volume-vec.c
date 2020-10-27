@@ -72,6 +72,7 @@ int main(int argc, const char *argv[]) {
   const char *ceed_spec = "/cpu/self";
   int dim        = 3;           // dimension of the mesh
   int ncompx     = 3;           // number of x components
+  int ncomp      = 3;           // number of solution components (tmp)
   int mesh_order = 4;           // polynomial degree for the mesh
   int sol_order  = 4;           // polynomial degree for the solution
   int num_qpts   = sol_order+2; // number of 1D quadrature points
@@ -88,6 +89,8 @@ int main(int argc, const char *argv[]) {
     } else if (!strcmp(argv[ia],"-d")) {
       parse_error = next_arg ? dim = atoi(argv[++ia]), 0 : 1;
       ncompx = dim;
+    } else if (!strcmp(argv[ia],"-n")) {
+      parse_error = next_arg ? ncomp = atoi(argv[++ia]), 0 : 1;
     } else if (!strcmp(argv[ia],"-m")) {
       parse_error = next_arg ? mesh_order = atoi(argv[++ia]), 0 : 1;
     } else if (!strcmp(argv[ia],"-o")) {
@@ -106,6 +109,7 @@ int main(int argc, const char *argv[]) {
       return 1;
     }
   }
+  if (ncomp < dim ) ncomp = dim;
   if (prob_size < 0) prob_size = test ? 8*16 : 256*1024;
 
   // Print the values of all options:
@@ -134,7 +138,7 @@ int main(int argc, const char *argv[]) {
   CeedBasis mesh_basis, sol_basis;
   CeedBasisCreateTensorH1Lagrange(ceed, dim, ncompx, mesh_order+1, num_qpts,
                                   CEED_GAUSS, &mesh_basis);
-  CeedBasisCreateTensorH1Lagrange(ceed, dim, dim, sol_order+1, num_qpts,
+  CeedBasisCreateTensorH1Lagrange(ceed, dim, ncomp, sol_order+1, num_qpts,
                                   CEED_GAUSS, &sol_basis);
 
   // Determine the mesh size based on the given approximate problem size.
@@ -156,7 +160,7 @@ int main(int argc, const char *argv[]) {
                             num_qpts, &mesh_restr, NULL);
   BuildCartesianRestriction(ceed, dim, nxyz, sol_order, 1, &sol_size,
                             num_qpts, &sol_restr, &sol_restr_i);
-  BuildCartesianRestriction(ceed, dim, nxyz, sol_order, dim, &full_sol_size,
+  BuildCartesianRestriction(ceed, dim, nxyz, sol_order, ncomp, &full_sol_size,
                             num_qpts, &sol_restr, NULL);
   if (!test) {
     printf("Number of mesh nodes         : %d\n", mesh_size/dim);
@@ -237,9 +241,9 @@ int main(int argc, const char *argv[]) {
     // This creates the QFunction directly.
     CeedQFunctionCreateInterior(ceed, 1, f_apply_mass,
                                 f_apply_mass_loc, &apply_qfunc);
-    CeedQFunctionAddInput(apply_qfunc, "u", dim, CEED_EVAL_INTERP);
+    CeedQFunctionAddInput(apply_qfunc, "u", ncomp, CEED_EVAL_INTERP);
     CeedQFunctionAddInput(apply_qfunc, "qdata", 1, CEED_EVAL_NONE);
-    CeedQFunctionAddOutput(apply_qfunc, "v", dim, CEED_EVAL_INTERP);
+    CeedQFunctionAddOutput(apply_qfunc, "v", ncomp, CEED_EVAL_INTERP);
     CeedQFunctionSetContext(apply_qfunc, build_ctx);
     break;
   case 1:
@@ -265,8 +269,8 @@ int main(int argc, const char *argv[]) {
 
   // Create auxiliary solution-size vectors.
   CeedVector u, v;
-  CeedVectorCreate(ceed, sol_size*dim, &u);
-  CeedVectorCreate(ceed, sol_size*dim, &v);
+  CeedVectorCreate(ceed, sol_size*ncomp, &u);
+  CeedVectorCreate(ceed, sol_size*ncomp, &v);
 
   // Initialize 'u' and 'v' with ones.
   CeedVectorSetValue(u, 1.0);
@@ -278,11 +282,11 @@ int main(int argc, const char *argv[]) {
   const CeedScalar *v_host;
   CeedVectorGetArrayRead(v, CEED_MEM_HOST, &v_host);
   CeedScalar vol = 0.;
-  for (CeedInt i = 0; i < sol_size*dim; i++) {
+  for (CeedInt i = 0; i < sol_size*ncomp; i++) {
     vol += v_host[i];
   }
   CeedScalar vol_comp = 0.;
-  for (CeedInt d = 0; d < dim; d++) {
+  for (CeedInt d = 0; d < ncomp; d++) {
     for (CeedInt i = d * sol_size; i < (d+1) * sol_size; i++) {
       vol_comp += v_host[i];
     }

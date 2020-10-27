@@ -39,8 +39,9 @@ static int CeedQFunctionApply_Hip(CeedQFunction qf, CeedInt Q,
   CeedInt numinputfields, numoutputfields;
   ierr = CeedQFunctionGetNumArgs(qf, &numinputfields, &numoutputfields);
   CeedChk(ierr);
-  const int blocksize = ceed_Hip->optblocksize;
-
+//  const int blocksize = ceed_Hip->optblocksize;
+  const int blocksize = 512;
+  
   // Read vectors
   for (CeedInt i = 0; i < numinputfields; i++) {
     ierr = CeedVectorGetArrayRead(U[i], CEED_MEM_DEVICE, &data->fields.inputs[i]);
