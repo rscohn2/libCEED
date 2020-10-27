@@ -14,4 +14,4 @@
 // software, applications, hardware, advanced system engineering and early
 // testbed platforms, in support of the nation's exascale computing imperative.
 
-CEED_INTERN int CeedHipBuildQFunction(CeedQFunction qf);
+CEED_INTERN int CeedHipBuildQFunction(CeedQFunction qf, const CeedInt nthreads);

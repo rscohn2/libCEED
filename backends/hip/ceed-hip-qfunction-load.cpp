@@ -45,7 +45,7 @@ inline __device__ void writeQuads(const CeedInt quad, const CeedInt nquads, cons
 //------------------------------------------------------------------------------
 // Build QFunction kernel
 //------------------------------------------------------------------------------
-extern "C" int CeedHipBuildQFunction(CeedQFunction qf) {
+extern "C" int CeedHipBuildQFunction(CeedQFunction qf, const CeedInt nthreads) {
   CeedInt ierr;
   using std::ostringstream;
   using std::string;
@@ -78,7 +78,8 @@ extern "C" int CeedHipBuildQFunction(CeedQFunction qf) {
   code << "typedef struct { const CeedScalar* inputs[16]; CeedScalar* outputs[16]; } Fields_Hip;\n";
   code << qReadWriteS;
   code << qFunction;
-  code << "extern \"C\" __global__ void " << kernelName << "(void *ctx, CeedInt Q, Fields_Hip fields) {\n";
+  code << "extern \"C\" __launch_bounds__(" << nthreads << ") __global__ void "
+	   << kernelName << "(void *ctx, CeedInt Q, Fields_Hip fields) {\n";
   
   // Inputs
   for (CeedInt i = 0; i < numinputfields; i++) {

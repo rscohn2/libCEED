@@ -30,17 +30,16 @@ static int CeedQFunctionApply_Hip(CeedQFunction qf, CeedInt Q,
   ierr = CeedQFunctionGetCeed(qf, &ceed); CeedChk(ierr);
 
   // Build and compile kernel, if not done
-  ierr = CeedHipBuildQFunction(qf); CeedChk(ierr);
+  Ceed_Hip *ceed_Hip;
+  ierr = CeedGetData(ceed, &ceed_Hip); CeedChk(ierr);
+  const int blocksize = ceed_Hip->optblocksize;
+  ierr = CeedHipBuildQFunction(qf, blocksize); CeedChk(ierr);
 
   CeedQFunction_Hip *data;
   ierr = CeedQFunctionGetData(qf, &data); CeedChk(ierr);
-  Ceed_Hip *ceed_Hip;
-  ierr = CeedGetData(ceed, &ceed_Hip); CeedChk(ierr);
   CeedInt numinputfields, numoutputfields;
   ierr = CeedQFunctionGetNumArgs(qf, &numinputfields, &numoutputfields);
   CeedChk(ierr);
-//  const int blocksize = ceed_Hip->optblocksize;
-  const int blocksize = 512;
   
   // Read vectors
   for (CeedInt i = 0; i < numinputfields; i++) {
