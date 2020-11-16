@@ -344,6 +344,12 @@ PetscErrorCode SetupLibceedFineLevel(DM dm, DM dmEnergy, DM dmDiagnostic,
   CeedQFunction qfSetupGeo, qfApply, qfJacob, qfEnergy, qfDiagnostic;
   CeedOperator  opSetupGeo, opApply, opJacob, opEnergy, opDiagnostic;
 
+// HACK ----------------------------------------------------------------------------------------------------------------
+  CeedVector    qdataHack;
+  CeedQFunction qfSetupHack;
+  CeedOperator  opSetupHack;
+// /end HACK -----------------------------------------------------------------------------------------------------------
+
   PetscFunctionBeginUser;
 
   ierr = DMGetDimension(dm, &dim); CHKERRQ(ierr);
@@ -439,6 +445,10 @@ PetscErrorCode SetupLibceedFineLevel(DM dm, DM dmEnergy, DM dmDiagnostic,
   CeedVectorCreate(ceed, Ulocsz, &data[fineLevel]->xceed);
   CeedVectorCreate(ceed, Ulocsz, &data[fineLevel]->yceed);
 
+// HACK ----------------------------------------------------------------------------------------------------------------
+  CeedVectorCreate(ceed, qdatasize * nelem * nqpts, &qdataHack);
+// /end HACK------------------------------------------------------------------------------------------------------------
+
   // ---------------------------------------------------------------------------
   // Geometric factor computation
   // ---------------------------------------------------------------------------
@@ -470,6 +480,35 @@ PetscErrorCode SetupLibceedFineLevel(DM dm, DM dmEnergy, DM dmDiagnostic,
   // -- Cleanup
   CeedQFunctionDestroy(&qfSetupGeo);
   CeedOperatorDestroy(&opSetupGeo);
+
+// HACK ----------------------------------------------------------------------------------------------------------------
+  // -- QFunction
+  CeedQFunctionCreateInterior(ceed, 1, SetupHack, SetupHack_loc,
+                              &qfSetupHack);
+  CeedQFunctionAddInput(qfSetupHack, "dx", ncompx * dim, CEED_EVAL_GRAD);
+  CeedQFunctionAddInput(qfSetupHack, "weight", 1, CEED_EVAL_WEIGHT);
+  CeedQFunctionAddInput(qfSetupHack, "x", ncompx, CEED_EVAL_INTERP);
+  CeedQFunctionAddOutput(qfSetupHack, "qdata", qdatasize, CEED_EVAL_NONE);
+
+  // -- Operator
+  CeedOperatorCreate(ceed, qfSetupHack, CEED_QFUNCTION_NONE,
+                     CEED_QFUNCTION_NONE, &opSetupHack);
+  CeedOperatorSetField(opSetupHack, "dx", data[fineLevel]->Erestrictx,
+                       data[fineLevel]->basisx, CEED_VECTOR_ACTIVE);
+  CeedOperatorSetField(opSetupHack, "weight", CEED_ELEMRESTRICTION_NONE,
+                       data[fineLevel]->basisx, CEED_VECTOR_NONE);
+  CeedOperatorSetField(opSetupHack, "x", data[fineLevel]->Erestrictx,
+                       data[fineLevel]->basisx, CEED_VECTOR_ACTIVE);
+  CeedOperatorSetField(opSetupHack, "qdata", data[fineLevel]->Erestrictqdi,
+                       CEED_BASIS_COLLOCATED, CEED_VECTOR_ACTIVE);
+
+  // -- Compute the quadrature data
+  CeedOperatorApply(opSetupHack, xcoord, qdataHack, CEED_REQUEST_IMMEDIATE);
+
+  // -- Cleanup
+  CeedQFunctionDestroy(&qfSetupHack);
+  CeedOperatorDestroy(&opSetupHack);
+// /end HACK -----------------------------------------------------------------------------------------------------------
 
   // ---------------------------------------------------------------------------
   // Local residual evaluator
@@ -735,9 +774,12 @@ PetscErrorCode SetupLibceedFineLevel(DM dm, DM dmEnergy, DM dmDiagnostic,
   CeedOperatorCreate(ceed, qfEnergy, CEED_QFUNCTION_NONE, CEED_QFUNCTION_NONE,
                      &opEnergy);
   CeedOperatorSetField(opEnergy, "du", data[fineLevel]->Erestrictu,
-                       data[fineLevel]->basisu, CEED_VECTOR_ACTIVE);
+                       data[fineLevel]->basisu, CEED_VECTOR_ACTIVE);\
+// HACK ----------------------------------------------------------------------------------------------------------------
   CeedOperatorSetField(opEnergy, "qdata", data[fineLevel]->Erestrictqdi,
-                       CEED_BASIS_COLLOCATED, data[fineLevel]->qdata);
+                       CEED_BASIS_COLLOCATED, qdataHack);
+  CeedVectorDestroy(&qdataHack);
+// /end HACK -----------------------------------------------------------------------------------------------------------
   CeedOperatorSetField(opEnergy, "energy", data[fineLevel]->ErestrictEnergy,
                        data[fineLevel]->basisEnergy, CEED_VECTOR_ACTIVE);
   // -- Save libCEED data
