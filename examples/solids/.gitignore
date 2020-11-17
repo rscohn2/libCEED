@@ -2,4 +2,3 @@ build/*
 elasticity
 *.d
 *.vtu
-*.msh
