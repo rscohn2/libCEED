@@ -123,6 +123,15 @@ PetscErrorCode ProcessCommandLineOptions(MPI_Comm comm, AppCtx appCtx) {
       norm = 1;
     for (PetscInt j = 0; j < 3; j++)
       appCtx->bcClampMax[i][3 + j] /= norm;
+
+    // Scaling
+    maxn = 3;
+    snprintf(optionName, sizeof optionName, "-bc_clamp_%d_scale",
+             appCtx->bcClampFaces[i]);
+    ierr = PetscOptionsScalarArray(optionName,
+                                   "Scaling in x, y, and z directions",
+                                   NULL, &appCtx->bcClampMax[i][7], &maxn, NULL);
+    CHKERRQ(ierr);
   }
 
   // Neumann boundary conditions
