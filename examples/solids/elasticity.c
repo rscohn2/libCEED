@@ -877,7 +877,7 @@ int main(int argc, char **argv) {
 
     // -- Output
     ierr = PetscPrintf(comm,
-                       "    Strain Energy                      : %e\n",
+                       "    Strain Energy                      : %.20e\n",
                        energy); CHKERRQ(ierr);
   }
 
