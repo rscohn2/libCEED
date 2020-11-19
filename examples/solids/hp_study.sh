@@ -15,19 +15,20 @@
 # testbed platforms, in support of the nation's exascale computing imperative.
 
 ceed="${ceed:-/cpu/self/xsmm/blocked}"
-common_args=(-ceed $ceed -problem hyperFS -num_steps 25)
+common_args=(-ceed $ceed -problem hyperFS)
 bc_args=(-bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.5,4,0.5 -bc_clamp_2_scale 0.5,4,0.5 -bc_clamp_3_scale 0.5,4,0.5 -bc_clamp_4_scale 0.5,4,0.5 -bc_clamp_5_scale 0.5,4,0.5 -bc_clamp_6_scale 0.5,4,0.5)
 materiel_args=(-nu 0.32 -E 69e6 -units_meter 100)
 solver_args=(-snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6)
-num_meshes=5
-meshes=(15 10 7.5 6 5)
+num_meshes=7
+meshes=(15 10 6 5 3 2 1)
+steps=(35 35 50 75 100 100)
 i=
 for ((i = 0; i < num_meshes; i++)); do
    mesh_args=(-mesh unstructured_box_${meshes[$i]}.msh)
    max_p=6
    sol_p=
    for ((sol_p = 1; sol_p <= max_p; sol_p++)); do
-      all_args=("${common_args[@]}" "${bc_args[@]}" "${materiel_args[@]}" "${mesh_args[@]}" "${solver_args[@]}" -degree $sol_p)
+      all_args=("${common_args[@]}" "${bc_args[@]}" "${materiel_args[@]}" "${mesh_args[@]}" "${solver_args[@]}" -degree $sol_p -num_steps ${steps[$p]})
       echo
       echo "Running test:"
       echo mpiexec -n 32 ./elasticity "${all_args[@]}"

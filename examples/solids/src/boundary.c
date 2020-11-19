@@ -65,9 +65,10 @@ PetscErrorCode BCClamp(PetscInt dim, PetscReal loadIncrement,
               theta = clampMax[6]*M_PI*loadIncrement,
               kx = clampMax[3], ky = clampMax[4], kz = clampMax[5];
   PetscScalar c = cos(theta), s = sin(theta);
-
-  u[0] = lx + s*(-kz*y + ky*z) + (1-c)*(-(ky*ky+kz*kz)*x + kx*ky*y + kx*kz*z) + x*(clampMax[7] - 1.0)*loadIncrement + 0.1*sin(M_PI*10*z/30)*loadIncrement;
+  const PetscScalar lengthInit = 30.0;
+  const PetscScalar lengthFinal = 15.0;
+  u[0] = lx + s*(-kz*y + ky*z) + (1-c)*(-(ky*ky+kz*kz)*x + kx*ky*y + kx*kz*z) + x*(clampMax[7] - 1.0)*loadIncrement + lengthFinal*0.025*sin(M_PI*10.0*z/lengthInit)*loadIncrement;
   u[1] = ly + s*(kz*x + -kx*z) + (1-c)*(kx*ky*x + -(kx*kx+kz*kz)*y + ky*kz*z) + y*(clampMax[8] - 1.0)*loadIncrement;
-  u[2] = lz + s*(-ky*x + kx*y) + (1-c)*(kx*kz*x + ky*kz*y + -(kx*kx+ky*ky)*z) + z*(clampMax[9] - 1.0)*loadIncrement + 0.1*sin(M_PI*10*x/30)*loadIncrement;
+  u[2] = lz + s*(-ky*x + kx*y) + (1-c)*(kx*kz*x + ky*kz*y + -(kx*kx+ky*ky)*z) + z*(clampMax[9] - 1.0)*loadIncrement + lengthFinal*0.025*sin(M_PI*10.0*x/lengthInit)*loadIncrement;
   PetscFunctionReturn(0);
 };
