@@ -15,12 +15,12 @@
 # testbed platforms, in support of the nation's exascale computing imperative.
 
 ceed="${ceed:-/cpu/self/xsmm/blocked}"
-common_args=(-ceed $ceed -problem hyperFS -num_steps 35)
+common_args=(-ceed $ceed -problem hyperFS -num_steps 25)
 bc_args=(-bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.6666666666666667,2.25,0.6666666666666667 -bc_clamp_2_scale 0.6666666666666667,2.25,0.6666666666666667 -bc_clamp_3_scale 0.6666666666666667,2.25,0.6666666666666667 -bc_clamp_4_scale 0.6666666666666667,2.25,0.6666666666666667 -bc_clamp_5_scale 0.6666666666666667,2.25,0.6666666666666667 -bc_clamp_6_scale 0.6666666666666667,2.25,0.6666666666666667)
 materiel_args=(-nu 0.32 -E 69e6 -units_meter 100)
 solver_args=(-snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6)
 num_meshes=6
-meshes=(2 3 4 5 6 7)
+meshes=(23rds 1 3haves 2)
 i=
 for ((i = 0; i < num_meshes; i++)); do
    mesh_args=(-mesh unstructured_box_${meshes[$i]}.msh)
@@ -30,8 +30,8 @@ for ((i = 0; i < num_meshes; i++)); do
       all_args=("${common_args[@]}" "${bc_args[@]}" "${materiel_args[@]}" "${mesh_args[@]}" "${solver_args[@]}" -degree $sol_p)
       echo
       echo "Running test:"
-      echo $PETSC_DIR/$PETSC_ARCH/bin/mpiexec ./elasticity -n 8 "${all_args[@]}"
-      $PETSC_DIR/$PETSC_ARCH/bin/mpiexec -n 8 ./elasticity "${all_args[@]}" || \
+      echo mpiexec -n 32 ./elasticity "${all_args[@]}"
+      mpiexec -n 32 ./elasticity "${all_args[@]}" || \
       printf "\nError in the test, error code: $?\n\n"
    done
 done
