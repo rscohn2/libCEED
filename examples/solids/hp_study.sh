@@ -16,12 +16,12 @@
 
 ceed="${ceed:-/cpu/self/xsmm/blocked}"
 common_args=(-ceed $ceed -problem hyperFS)
-bc_args=(-bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.5,4,0.5 -bc_clamp_2_scale 0.5,4,0.5 -bc_clamp_3_scale 0.5,4,0.5 -bc_clamp_4_scale 0.5,4,0.5 -bc_clamp_5_scale 0.5,4,0.5 -bc_clamp_6_scale 0.5,4,0.5)
+bc_args=(-bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667)
 materiel_args=(-nu 0.32 -E 69e6 -units_meter 100)
 solver_args=(-snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6)
 num_meshes=7
 meshes=(15 10 6 5 3 2 1)
-steps=(35 35 50 75 100 100)
+steps=(35 35 50 75 100 150)
 i=
 for ((i = 0; i < num_meshes; i++)); do
    mesh_args=(-mesh unstructured_box_${meshes[$i]}.msh)
