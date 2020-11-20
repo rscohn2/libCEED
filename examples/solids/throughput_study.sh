@@ -30,8 +30,8 @@ for ((i = 0; i < num_procs; i++)); do
       all_args=("${common_args[@]}" "${bc_args[@]}" "${materiel_args[@]}" "${mesh_args[@]}" "${solver_args[@]}" -degree $sol_p)
       echo
       echo "Running test:"
-      echo mpiexec -n ${num_proc[$1]} ./elasticity "${all_args[@]}"
-      mpiexec -n ${num_proc[$1]} ./elasticity "${all_args[@]}" || \
+      echo mpiexec -n ${num_proc[$i]} ./elasticity "${all_args[@]}"
+      mpiexec -n ${num_proc[$i]} ./elasticity "${all_args[@]}" || \
       printf "\nError in the test, error code: $?\n\n"
    done
 done
