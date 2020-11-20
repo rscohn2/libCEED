@@ -21,14 +21,14 @@ materiel_args=(-nu 0.32 -E 69e6 -units_meter 100)
 solver_args=(-snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6)
 num_meshes=7
 meshes=(15 10 6 5 3 2 1)
-steps=(35 35 50 75 100 150)
+steps=(x 35 35 50 75 100 150)
 i=
 for ((i = 0; i < num_meshes; i++)); do
    mesh_args=(-mesh unstructured_box_${meshes[$i]}.msh)
    max_p=6
    sol_p=
    for ((sol_p = 1; sol_p <= max_p; sol_p++)); do
-      all_args=("${common_args[@]}" "${bc_args[@]}" "${materiel_args[@]}" "${mesh_args[@]}" "${solver_args[@]}" -degree $sol_p -num_steps ${steps[$p]})
+      all_args=("${common_args[@]}" "${bc_args[@]}" "${materiel_args[@]}" "${mesh_args[@]}" "${solver_args[@]}" -degree $sol_p -num_steps ${steps[$sol_p]})
       echo
       echo "Running test:"
       echo mpiexec -n 32 ./elasticity "${all_args[@]}"
