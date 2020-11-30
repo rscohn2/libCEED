@@ -446,7 +446,7 @@ PetscErrorCode SetupLibceedFineLevel(DM dm, DM dmEnergy, DM dmDiagnostic,
   CeedVectorCreate(ceed, Ulocsz, &data[fineLevel]->yceed);
 
 // HACK ----------------------------------------------------------------------------------------------------------------
-//  CeedVectorCreate(ceed, qdatasize * nelem * nqpts, &qdataHack);
+  CeedVectorCreate(ceed, qdatasize * nelem * nqpts, &qdataHack);
 // /end HACK------------------------------------------------------------------------------------------------------------
 
   // ---------------------------------------------------------------------------
@@ -480,7 +480,7 @@ PetscErrorCode SetupLibceedFineLevel(DM dm, DM dmEnergy, DM dmDiagnostic,
   // -- Cleanup
   CeedQFunctionDestroy(&qfSetupGeo);
   CeedOperatorDestroy(&opSetupGeo);
-/*
+
 // HACK ----------------------------------------------------------------------------------------------------------------
   // -- QFunction
   CeedQFunctionCreateInterior(ceed, 1, SetupHack, SetupHack_loc,
@@ -509,7 +509,7 @@ PetscErrorCode SetupLibceedFineLevel(DM dm, DM dmEnergy, DM dmDiagnostic,
   CeedQFunctionDestroy(&qfSetupHack);
   CeedOperatorDestroy(&opSetupHack);
 // /end HACK -----------------------------------------------------------------------------------------------------------
-*/
+
   // ---------------------------------------------------------------------------
   // Local residual evaluator
   // ---------------------------------------------------------------------------
@@ -777,8 +777,8 @@ PetscErrorCode SetupLibceedFineLevel(DM dm, DM dmEnergy, DM dmDiagnostic,
                        data[fineLevel]->basisu, CEED_VECTOR_ACTIVE);\
 // HACK ----------------------------------------------------------------------------------------------------------------
   CeedOperatorSetField(opEnergy, "qdata", data[fineLevel]->Erestrictqdi,
-                       CEED_BASIS_COLLOCATED, data[fineLevel]->qdata);
-//  CeedVectorDestroy(&qdataHack);
+                       CEED_BASIS_COLLOCATED, qdataHack);
+  CeedVectorDestroy(&qdataHack);
 // /end HACK -----------------------------------------------------------------------------------------------------------
   CeedOperatorSetField(opEnergy, "energy", data[fineLevel]->ErestrictEnergy,
                        data[fineLevel]->basisEnergy, CEED_VECTOR_ACTIVE);
