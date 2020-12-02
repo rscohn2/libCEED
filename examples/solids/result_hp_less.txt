@@ -1,6 +1,6 @@
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 75
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -33,21 +33,21 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 75
-    Completed Load Increments          : 75
-    Total SNES Iterations              : 225
-    Final rnorm                        : 3.879532e-03
+    Number of Load Increments          : 100
+    Completed Load Increments          : 100
+    Total SNES Iterations              : 300
+    Final rnorm                        : 1.969740e-04
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 599
+    Total KSP Iterations               : 800
     PC Type                            : gamg
   Performance:
-    SNES Solve Time                    : 8.7916 (8.7916) sec
-    DoFs/Sec in SNES                   : 0.0016352 (0.0016352) million
-    Strain Energy                      : 7.03748878216378498077e+09
+    SNES Solve Time                    : 11.895 (11.895) sec
+    DoFs/Sec in SNES                   : 0.00161413 (0.00161413) million
+    Strain Energy                      : 1.19172635167813444138e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 75
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -80,13 +80,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 75
-    Completed Load Increments          : 75
-    Total SNES Iterations              : 225
-    Final rnorm                        : 1.366539e-02
+    Number of Load Increments          : 125
+    Completed Load Increments          : 125
+    Total SNES Iterations              : 375
+    Final rnorm                        : 1.779836e-04
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 825
+    Total KSP Iterations               : 1495
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -95,12 +95,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 2.49811 (2.4981) sec
-    DoFs/Sec in SNES                   : 0.121862 (0.121863) million
-    Strain Energy                      : 7.59223953871489334106e+09
+    SNES Solve Time                    : 4.17106 (4.17106) sec
+    DoFs/Sec in SNES                   : 0.132258 (0.132258) million
+    Strain Energy                      : 1.74176863765690279007e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 100
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -133,13 +133,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 100
-    Completed Load Increments          : 100
-    Total SNES Iterations              : 300
-    Final rnorm                        : 4.700508e+00
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 750
+    Final rnorm                        : 4.935143e-02
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 1278
+    Total KSP Iterations               : 3703
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -148,12 +148,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 6.31567 (6.31566) sec
-    DoFs/Sec in SNES                   : 0.303531 (0.303531) million
-    Strain Energy                      : 7.80187715567254638672e+09
+    SNES Solve Time                    : 16.1463 (16.1463) sec
+    DoFs/Sec in SNES                   : 0.34401 (0.34401) million
+    Strain Energy                      : 1.87294781691642355919e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 150
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -186,13 +186,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 150
-    Completed Load Increments          : 150
-    Total SNES Iterations              : 479
-    Final rnorm                        : 2.146674e+01
+    Number of Load Increments          : 350
+    Completed Load Increments          : 350
+    Total SNES Iterations              : 1050
+    Final rnorm                        : 4.011014e+00
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 2381
+    Total KSP Iterations               : 5940
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -201,12 +201,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 16.9138 (16.9138) sec
-    DoFs/Sec in SNES                   : 0.546901 (0.546901) million
-    Strain Energy                      : 9.11223312088407135010e+09
+    SNES Solve Time                    : 37.8198 (37.8198) sec
+    DoFs/Sec in SNES                   : 0.61018 (0.61018) million
+    Strain Energy                      : 3.04622557464576721191e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 250
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -239,13 +239,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 250
-    Completed Load Increments          : 250
-    Total SNES Iterations              : 803
-    Final rnorm                        : 7.043116e+00
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1377
+    Final rnorm                        : 9.664909e-02
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 4105
+    Total KSP Iterations               : 8136
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -254,12 +254,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 54.7812 (54.7812) sec
-    DoFs/Sec in SNES                   : 0.598876 (0.598876) million
-    Strain Energy                      : 8.65643436374421310425e+09
+    SNES Solve Time                    : 97.2382 (97.2382) sec
+    DoFs/Sec in SNES                   : 0.668697 (0.668697) million
+    Strain Energy                      : 2.56447276389564323425e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 500
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -292,13 +292,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 500
-    Completed Load Increments          : 500
-    Total SNES Iterations              : 1548
-    Final rnorm                        : 5.671329e-01
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 2550
+    Final rnorm                        : 4.788698e+00
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 9227
+    Total KSP Iterations               : 16435
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -307,12 +307,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 177.807 (177.807) sec
-    DoFs/Sec in SNES                   : 0.741503 (0.741503) million
-    Strain Energy                      : 8.91726868702651214600e+09
+    SNES Solve Time                    : 300.555 (300.555) sec
+    DoFs/Sec in SNES                   : 0.781353 (0.781353) million
+    Strain Energy                      : 2.83173761178295803070e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 75
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -345,21 +345,21 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 75
-    Completed Load Increments          : 75
-    Total SNES Iterations              : 225
-    Final rnorm                        : 3.875805e-01
+    Number of Load Increments          : 100
+    Completed Load Increments          : 100
+    Total SNES Iterations              : 300
+    Final rnorm                        : 1.387627e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 525
+    Total KSP Iterations               : 700
     PC Type                            : gamg
   Performance:
-    SNES Solve Time                    : 9.77934 (9.77933) sec
-    DoFs/Sec in SNES                   : 0.00450951 (0.00450951) million
-    Strain Energy                      : 6.94851076108715724945e+09
+    SNES Solve Time                    : 12.9035 (12.9035) sec
+    DoFs/Sec in SNES                   : 0.00455691 (0.00455691) million
+    Strain Energy                      : 1.18750985861390876770e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 75
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -392,13 +392,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 75
-    Completed Load Increments          : 75
-    Total SNES Iterations              : 225
-    Final rnorm                        : 5.536405e-01
+    Number of Load Increments          : 125
+    Completed Load Increments          : 125
+    Total SNES Iterations              : 375
+    Final rnorm                        : 6.972148e-04
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 849
+    Total KSP Iterations               : 1465
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -407,12 +407,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 2.21305 (2.21304) sec
-    DoFs/Sec in SNES                   : 0.397061 (0.397062) million
-    Strain Energy                      : 7.68115145439426898956e+09
+    SNES Solve Time                    : 3.69269 (3.69269) sec
+    DoFs/Sec in SNES                   : 0.410615 (0.410615) million
+    Strain Energy                      : 1.76984957485597276688e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 100
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -445,13 +445,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 100
-    Completed Load Increments          : 100
-    Total SNES Iterations              : 309
-    Final rnorm                        : 7.461541e-01
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 750
+    Final rnorm                        : 5.763256e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 1120
+    Total KSP Iterations               : 3356
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -460,12 +460,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 5.00165 (5.00165) sec
-    DoFs/Sec in SNES                   : 0.892121 (0.892122) million
-    Strain Energy                      : 7.94106194569706630707e+09
+    SNES Solve Time                    : 12.4315 (12.4315) sec
+    DoFs/Sec in SNES                   : 1.07552 (1.07552) million
+    Strain Energy                      : 1.97580370488884592056e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 150
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -498,13 +498,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 150
-    Completed Load Increments          : 150
-    Total SNES Iterations              : 565
-    Final rnorm                        : 9.985207e+00
+    Number of Load Increments          : 350
+    Completed Load Increments          : 350
+    Total SNES Iterations              : 1129
+    Final rnorm                        : 3.286071e+00
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 2411
+    Total KSP Iterations               : 6020
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -513,12 +513,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 13.3511 (13.3511) sec
-    DoFs/Sec in SNES                   : 1.81758 (1.81758) million
-    Strain Energy                      : 8.96851309633461380005e+09
+    SNES Solve Time                    : 27.7173 (27.7173) sec
+    DoFs/Sec in SNES                   : 2.18604 (2.18604) million
+    Strain Energy                      : 2.90595715767132472992e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 250
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -551,13 +551,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 250
-    Completed Load Increments          : 250
-    Total SNES Iterations              : 845
-    Final rnorm                        : 1.553607e+00
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1410
+    Final rnorm                        : 5.589223e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 3767
+    Total KSP Iterations               : 7110
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -566,12 +566,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 35.7454 (35.7454) sec
-    DoFs/Sec in SNES                   : 2.1511 (2.1511) million
-    Strain Energy                      : 8.69820469558963012695e+09
+    SNES Solve Time                    : 60.6299 (60.6299) sec
+    DoFs/Sec in SNES                   : 2.39369 (2.39369) million
+    Strain Energy                      : 2.60004939488035345078e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 500
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -604,13 +604,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 500
-    Completed Load Increments          : 500
-    Total SNES Iterations              : 1653
-    Final rnorm                        : 1.080765e+01
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 2599
+    Final rnorm                        : 6.112674e-02
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 9006
+    Total KSP Iterations               : 14809
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -619,12 +619,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 109.321 (109.321) sec
-    DoFs/Sec in SNES                   : 2.97882 (2.97882) million
-    Strain Energy                      : 8.88870704153828048706e+09
+    SNES Solve Time                    : 173.461 (173.461) sec
+    DoFs/Sec in SNES                   : 3.08702 (3.08702) million
+    Strain Energy                      : 2.80929673287921428680e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 75
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -657,21 +657,21 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 75
-    Completed Load Increments          : 75
-    Total SNES Iterations              : 225
-    Final rnorm                        : 5.151777e-01
+    Number of Load Increments          : 100
+    Completed Load Increments          : 100
+    Total SNES Iterations              : 300
+    Final rnorm                        : 1.309975e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 525
+    Total KSP Iterations               : 700
     PC Type                            : gamg
   Performance:
-    SNES Solve Time                    : 17.3049 (17.3049) sec
-    DoFs/Sec in SNES                   : 0.0178389 (0.0178389) million
-    Strain Energy                      : 7.53385910944724559784e+09
+    SNES Solve Time                    : 22.8975 (22.8975) sec
+    DoFs/Sec in SNES                   : 0.0179758 (0.0179758) million
+    Strain Energy                      : 1.55654200762933540344e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 75
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -704,13 +704,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 75
-    Completed Load Increments          : 75
-    Total SNES Iterations              : 234
-    Final rnorm                        : 6.870232e-01
+    Number of Load Increments          : 125
+    Completed Load Increments          : 125
+    Total SNES Iterations              : 375
+    Final rnorm                        : 1.741990e+00
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 807
+    Total KSP Iterations               : 1409
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -719,12 +719,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 3.73561 (3.73561) sec
-    DoFs/Sec in SNES                   : 1.28904 (1.28905) million
-    Strain Energy                      : 8.63807770755047798157e+09
+    SNES Solve Time                    : 6.15019 (6.15019) sec
+    DoFs/Sec in SNES                   : 1.36703 (1.36703) million
+    Strain Energy                      : 2.54070447417307567596e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 100
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -757,13 +757,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 100
-    Completed Load Increments          : 100
-    Total SNES Iterations              : 395
-    Final rnorm                        : 3.754385e+01
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 810
+    Final rnorm                        : 6.542550e+00
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 1278
+    Total KSP Iterations               : 3417
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -772,12 +772,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 10.4536 (10.4536) sec
-    DoFs/Sec in SNES                   : 2.65464 (2.65464) million
-    Strain Energy                      : 8.94181888030808258057e+09
+    SNES Solve Time                    : 21.3572 (21.3572) sec
+    DoFs/Sec in SNES                   : 3.47408 (3.47408) million
+    Strain Energy                      : 2.80492578612893486023e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 150
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -810,13 +810,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 150
-    Completed Load Increments          : 150
-    Total SNES Iterations              : 575
-    Final rnorm                        : 4.822329e-01
+    Number of Load Increments          : 350
+    Completed Load Increments          : 350
+    Total SNES Iterations              : 1074
+    Final rnorm                        : 1.242640e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 2484
+    Total KSP Iterations               : 5585
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -825,12 +825,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 21.9735 (21.9735) sec
-    DoFs/Sec in SNES                   : 6.03762 (6.03763) million
-    Strain Energy                      : 8.93279331978973960876e+09
+    SNES Solve Time                    : 43.0451 (43.0451) sec
+    DoFs/Sec in SNES                   : 6.92969 (6.92969) million
+    Strain Energy                      : 2.80708237977391433716e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 250
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -863,13 +863,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 250
-    Completed Load Increments          : 250
-    Total SNES Iterations              : 945
-    Final rnorm                        : 1.673756e-01
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1381
+    Final rnorm                        : 5.965533e-02
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 3745
+    Total KSP Iterations               : 6694
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -878,12 +878,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 63.6684 (63.6684) sec
-    DoFs/Sec in SNES                   : 6.27214 (6.27214) million
-    Strain Energy                      : 8.92167201347381591797e+09
+    SNES Solve Time                    : 97.7558 (97.7558) sec
+    DoFs/Sec in SNES                   : 7.30181 (7.30181) million
+    Strain Energy                      : 2.79713141615850448608e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 500
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -916,13 +916,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 500
-    Completed Load Increments          : 500
-    Total SNES Iterations              : 1718
-    Final rnorm                        : 1.251449e+01
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 2609
+    Final rnorm                        : 2.926714e+00
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 9827
+    Total KSP Iterations               : 15592
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -931,12 +931,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 196.335 (196.335) sec
-    DoFs/Sec in SNES                   : 9.35791 (9.35791) million
-    Strain Energy                      : 8.90140362628801155090e+09
+    SNES Solve Time                    : 303.201 (303.201) sec
+    DoFs/Sec in SNES                   : 9.6145 (9.6145) million
+    Strain Energy                      : 2.78714582416398429871e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -972,18 +972,18 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
     Number of Load Increments          : 100
     Completed Load Increments          : 100
     Total SNES Iterations              : 300
-    Final rnorm                        : 4.125675e-01
+    Final rnorm                        : 1.560678e-01
   Linear Solver:
     KSP Type                           : cg
     Total KSP Iterations               : 700
     PC Type                            : gamg
   Performance:
-    SNES Solve Time                    : 26.0705 (26.0705) sec
-    DoFs/Sec in SNES                   : 0.0197349 (0.0197349) million
-    Strain Energy                      : 7.31851632141585159302e+09
+    SNES Solve Time                    : 25.6646 (25.6646) sec
+    DoFs/Sec in SNES                   : 0.0200471 (0.0200471) million
+    Strain Energy                      : 1.50849641778367543221e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -1018,11 +1018,11 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
     Number of Load Increments          : 125
     Completed Load Increments          : 125
-    Total SNES Iterations              : 384
-    Final rnorm                        : 2.493981e-01
+    Total SNES Iterations              : 375
+    Final rnorm                        : 5.417510e+00
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 1243
+    Total KSP Iterations               : 1250
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -1031,12 +1031,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 6.47305 (6.47305) sec
-    DoFs/Sec in SNES                   : 1.40045 (1.40045) million
-    Strain Energy                      : 8.51171878251189041138e+09
+    SNES Solve Time                    : 6.20619 (6.20619) sec
+    DoFs/Sec in SNES                   : 1.4689 (1.4689) million
+    Strain Energy                      : 2.50887825273066806793e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 150
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -1069,13 +1069,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 150
-    Completed Load Increments          : 150
-    Total SNES Iterations              : 566
-    Final rnorm                        : 4.191339e+00
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 831
+    Final rnorm                        : 3.112614e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 1686
+    Total KSP Iterations               : 2962
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -1084,12 +1084,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 14.6259 (14.6259) sec
-    DoFs/Sec in SNES                   : 3.03946 (3.03946) million
-    Strain Energy                      : 8.84624643858320617676e+09
+    SNES Solve Time                    : 22.069 (22.069) sec
+    DoFs/Sec in SNES                   : 3.53885 (3.53885) million
+    Strain Energy                      : 2.77399258521187305450e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -1124,11 +1124,11 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
     Number of Load Increments          : 350
     Completed Load Increments          : 350
-    Total SNES Iterations              : 1183
-    Final rnorm                        : 4.380209e+00
+    Total SNES Iterations              : 1084
+    Final rnorm                        : 3.169550e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 5305
+    Total KSP Iterations               : 4900
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -1137,12 +1137,118 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 47.4612 (47.4612) sec
-    DoFs/Sec in SNES                   : 7.22661 (7.22662) million
-    Strain Energy                      : 8.88586673096081542969e+09
+    SNES Solve Time                    : 43.3775 (43.3775) sec
+    DoFs/Sec in SNES                   : 7.30332 (7.30332) million
+    Strain Energy                      : 2.79073602261372470856e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_5.msh
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 42949
+    Owned nodes                        : 984
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 245
+      Owned Nodes                      : 0
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 6
+      Global Nodes                     : 42949
+      Owned Nodes                      : 984
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1391
+    Final rnorm                        : 2.555808e-01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 6136
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 100.786 (100.786) sec
+    DoFs/Sec in SNES                   : 7.84443 (7.84443) million
+    Strain Energy                      : 2.78718205016520404816e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_5.msh
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 75215
+    Owned nodes                        : 1805
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 245
+      Owned Nodes                      : 0
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 7
+      Global Nodes                     : 75215
+      Owned Nodes                      : 1805
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 2653
+    Final rnorm                        : 1.694843e-01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 15380
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 319.881 (319.881) sec
+    DoFs/Sec in SNES                   : 10.8491 (10.8491) million
+    Strain Energy                      : 2.78506771389065408707e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -1178,18 +1284,18 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
     Number of Load Increments          : 100
     Completed Load Increments          : 100
     Total SNES Iterations              : 300
-    Final rnorm                        : 5.055448e+00
+    Final rnorm                        : 2.820546e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 824
+    Total KSP Iterations               : 800
     PC Type                            : gamg
   Performance:
-    SNES Solve Time                    : 57.7988 (57.7988) sec
-    DoFs/Sec in SNES                   : 0.0600477 (0.0600477) million
-    Strain Energy                      : 7.91588853772229766846e+09
+    SNES Solve Time                    : 57.7973 (57.7973) sec
+    DoFs/Sec in SNES                   : 0.0583003 (0.0583003) million
+    Strain Energy                      : 1.99042164023799204826e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -1224,11 +1330,11 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
     Number of Load Increments          : 125
     Completed Load Increments          : 125
-    Total SNES Iterations              : 415
-    Final rnorm                        : 1.302419e+01
+    Total SNES Iterations              : 386
+    Final rnorm                        : 2.507963e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 1408
+    Total KSP Iterations               : 1332
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -1237,12 +1343,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 15.1918 (15.1918) sec
-    DoFs/Sec in SNES                   : 3.53422 (3.53422) million
-    Strain Energy                      : 8.94246984990230941772e+09
+    SNES Solve Time                    : 14.2538 (14.2538) sec
+    DoFs/Sec in SNES                   : 3.56349 (3.56349) million
+    Strain Energy                      : 2.80928701429843711853e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 150
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -1275,13 +1381,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 150
-    Completed Load Increments          : 150
-    Total SNES Iterations              : 593
-    Final rnorm                        : 3.347752e+00
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 781
+    Final rnorm                        : 7.217804e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 1889
+    Total KSP Iterations               : 2904
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -1290,12 +1396,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 40.9121 (40.9121) sec
-    DoFs/Sec in SNES                   : 6.18615 (6.18615) million
-    Strain Energy                      : 8.91991951434334564209e+09
+    SNES Solve Time                    : 53.9054 (53.9054) sec
+    DoFs/Sec in SNES                   : 7.2178 (7.2178) million
+    Strain Energy                      : 2.79881727952824401855e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -1330,11 +1436,11 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
     Number of Load Increments          : 350
     Completed Load Increments          : 350
-    Total SNES Iterations              : 1299
-    Final rnorm                        : 9.916596e-01
+    Total SNES Iterations              : 1111
+    Final rnorm                        : 2.997111e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 6033
+    Total KSP Iterations               : 5394
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -1343,12 +1449,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 147.466 (147.466) sec
-    DoFs/Sec in SNES                   : 13.2541 (13.2541) million
-    Strain Energy                      : 8.91874619388122749329e+09
+    SNES Solve Time                    : 126.946 (126.946) sec
+    DoFs/Sec in SNES                   : 13.7658 (13.7658) million
+    Strain Energy                      : 2.79210690875854253769e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 550
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -1381,13 +1487,13 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
   SNES:
     SNES Type                          : newtonls
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 550
-    Completed Load Increments          : 550
-    Total SNES Iterations              : 2032
-    Final rnorm                        : 7.484319e-01
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1450
+    Final rnorm                        : 1.593537e+00
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 9019
+    Total KSP Iterations               : 6694
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -1396,218 +1502,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 491.923 (491.923) sec
-    DoFs/Sec in SNES                   : 11.74 (11.74) million
-    Strain Energy                      : 8.90149883285081481934e+09
+    SNES Solve Time                    : 346.13 (346.13) sec
+    DoFs/Sec in SNES                   : 12.3837 (12.3837) million
+    Strain Energy                      : 2.78412923739921045303e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
-
--- Elasticity Example - libCEED + PETSc --
-  libCEED:
-    libCEED Backend                    : /cpu/self/xsmm/blocked
-    libCEED Backend MemType            : host
-    libCEED User Requested MemType     : none
-  PETSc:
-    PETSc Vec Type                     : mpi
-  Problem:
-    Problem Name                       : Hyper elasticity finite strain
-    Forcing Function                   : None
-  Mesh:
-    File                               : unstructured_box_2.msh
-    Number of 1D Basis Nodes (p)       : 2
-    Number of 1D Quadrature Points (q) : 2
-    Global nodes                       : 5082
-    Owned nodes                        : 95
-    DoF per node                       : 3
-  Multigrid:
-    Type                               : Algebraic multigrid
-    Number of Levels                   : 0
-    Level 0 (coarse):
-      Number of 1D Basis Nodes (p)     : 2
-      Global Nodes                     : 5082
-      Owned Nodes                      : 95
-    Level 0 (fine):
-      Number of 1D Basis Nodes (p)     : 2
-      Global Nodes                     : 5082
-      Owned Nodes                      : 95
-  SNES:
-    SNES Type                          : newtonls
-    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 100
-    Completed Load Increments          : 100
-    Total SNES Iterations              : 316
-    Final rnorm                        : 8.771813e-01
-  Linear Solver:
-    KSP Type                           : cg
-    Total KSP Iterations               : 940
-    PC Type                            : gamg
-  Performance:
-    SNES Solve Time                    : 121.539 (121.539) sec
-    DoFs/Sec in SNES                   : 0.117915 (0.117915) million
-    Strain Energy                      : 8.39290506834432792664e+09
-
-Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
-
--- Elasticity Example - libCEED + PETSc --
-  libCEED:
-    libCEED Backend                    : /cpu/self/xsmm/blocked
-    libCEED Backend MemType            : host
-    libCEED User Requested MemType     : none
-  PETSc:
-    PETSc Vec Type                     : mpi
-  Problem:
-    Problem Name                       : Hyper elasticity finite strain
-    Forcing Function                   : None
-  Mesh:
-    File                               : unstructured_box_2.msh
-    Number of 1D Basis Nodes (p)       : 3
-    Number of 1D Quadrature Points (q) : 3
-    Global nodes                       : 44109
-    Owned nodes                        : 1057
-    DoF per node                       : 3
-  Multigrid:
-    Type                               : P-multigrid, logarithmic coarsening
-    Number of Levels                   : 2
-    Level 0 (coarse):
-      Number of 1D Basis Nodes (p)     : 2
-      Global Nodes                     : 5082
-      Owned Nodes                      : 95
-    Level 1 (fine):
-      Number of 1D Basis Nodes (p)     : 3
-      Global Nodes                     : 44109
-      Owned Nodes                      : 1057
-  SNES:
-    SNES Type                          : newtonls
-    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 125
-    Completed Load Increments          : 125
-    Total SNES Iterations              : 479
-    Final rnorm                        : 8.742361e-01
-  Linear Solver:
-    KSP Type                           : cg
-    Total KSP Iterations               : 1625
-    PC Type                            : mg
-  P-Multigrid:
-    PCMG Type                          : MULTIPLICATIVE
-    PCMG Cycle Type                    : v
-    Coarse Solve:
-      KSP Type                         : preonly
-      PC Type                          : gamg
-  Performance:
-    SNES Solve Time                    : 38.445 (38.4449) sec
-    DoFs/Sec in SNES                   : 5.59323 (5.59323) million
-    Strain Energy                      : 8.88674362620512390137e+09
-
-Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
-
--- Elasticity Example - libCEED + PETSc --
-  libCEED:
-    libCEED Backend                    : /cpu/self/xsmm/blocked
-    libCEED Backend MemType            : host
-    libCEED User Requested MemType     : none
-  PETSc:
-    PETSc Vec Type                     : mpi
-  Problem:
-    Problem Name                       : Hyper elasticity finite strain
-    Forcing Function                   : None
-  Mesh:
-    File                               : unstructured_box_2.msh
-    Number of 1D Basis Nodes (p)       : 5
-    Number of 1D Quadrature Points (q) : 5
-    Global nodes                       : 367275
-    Owned nodes                        : 9827
-    DoF per node                       : 3
-  Multigrid:
-    Type                               : P-multigrid, logarithmic coarsening
-    Number of Levels                   : 3
-    Level 0 (coarse):
-      Number of 1D Basis Nodes (p)     : 2
-      Global Nodes                     : 5082
-      Owned Nodes                      : 95
-    Level 2 (fine):
-      Number of 1D Basis Nodes (p)     : 5
-      Global Nodes                     : 367275
-      Owned Nodes                      : 9827
-  SNES:
-    SNES Type                          : newtonls
-    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 350
-    Completed Load Increments          : 350
-    Total SNES Iterations              : 1501
-    Final rnorm                        : 1.775783e+00
-  Linear Solver:
-    KSP Type                           : cg
-    Total KSP Iterations               : 6677
-    PC Type                            : mg
-  P-Multigrid:
-    PCMG Type                          : MULTIPLICATIVE
-    PCMG Cycle Type                    : v
-    Coarse Solve:
-      KSP Type                         : preonly
-      PC Type                          : gamg
-  Performance:
-    SNES Solve Time                    : 479.417 (479.417) sec
-    DoFs/Sec in SNES                   : 15.3455 (15.3455) million
-    Strain Energy                      : 8.89845055751407623291e+09
-
-Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 550
-
--- Elasticity Example - libCEED + PETSc --
-  libCEED:
-    libCEED Backend                    : /cpu/self/xsmm/blocked
-    libCEED Backend MemType            : host
-    libCEED User Requested MemType     : none
-  PETSc:
-    PETSc Vec Type                     : mpi
-  Problem:
-    Problem Name                       : Hyper elasticity finite strain
-    Forcing Function                   : None
-  Mesh:
-    File                               : unstructured_box_2.msh
-    Number of 1D Basis Nodes (p)       : 6
-    Number of 1D Quadrature Points (q) : 6
-    Global nodes                       : 723054
-    Owned nodes                        : 19759
-    DoF per node                       : 3
-  Multigrid:
-    Type                               : P-multigrid, logarithmic coarsening
-    Number of Levels                   : 4
-    Level 0 (coarse):
-      Number of 1D Basis Nodes (p)     : 2
-      Global Nodes                     : 5082
-      Owned Nodes                      : 95
-    Level 3 (fine):
-      Number of 1D Basis Nodes (p)     : 6
-      Global Nodes                     : 723054
-      Owned Nodes                      : 19759
-  SNES:
-    SNES Type                          : newtonls
-    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
-    Number of Load Increments          : 550
-    Completed Load Increments          : 550
-    Total SNES Iterations              : 2260
-    Final rnorm                        : 1.803522e+01
-  Linear Solver:
-    KSP Type                           : cg
-    Total KSP Iterations               : 9310
-    PC Type                            : mg
-  P-Multigrid:
-    PCMG Type                          : MULTIPLICATIVE
-    PCMG Cycle Type                    : v
-    Coarse Solve:
-      KSP Type                         : preonly
-      PC Type                          : gamg
-  Performance:
-    SNES Solve Time                    : 1613.43 (1613.43) sec
-    DoFs/Sec in SNES                   : 12.5167 (12.5167) million
-    Strain Energy                      : 8.89714696848748397827e+09
-
-Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -1642,11 +1542,11 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
     Number of Load Increments          : 850
     Completed Load Increments          : 850
-    Total SNES Iterations              : 3096
-    Final rnorm                        : 3.250984e+00
+    Total SNES Iterations              : 2659
+    Final rnorm                        : 1.809607e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 18041
+    Total KSP Iterations               : 16022
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -1655,12 +1555,112 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 1376.67 (1376.67) sec
-    DoFs/Sec in SNES                   : 14.6155 (14.6155) million
-    Strain Energy                      : 8.90324165084024429321e+09
+    SNES Solve Time                    : 1207.15 (1207.15) sec
+    DoFs/Sec in SNES                   : 14.8027 (14.8027) million
+    Strain Energy                      : 2.78327636043370437622e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_2.msh
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 2
+    Global nodes                       : 5082
+    Owned nodes                        : 95
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : Algebraic multigrid
+    Number of Levels                   : 0
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
+    Level 0 (fine):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 100
+    Completed Load Increments          : 100
+    Total SNES Iterations              : 300
+    Final rnorm                        : 5.976966e+00
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 902
+    PC Type                            : gamg
+  Performance:
+    SNES Solve Time                    : 115.231 (115.231) sec
+    DoFs/Sec in SNES                   : 0.119342 (0.119342) million
+    Strain Energy                      : 2.37788469870002746582e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_2.msh
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 44109
+    Owned nodes                        : 1057
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 2
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
+    Level 1 (fine):
+      Number of 1D Basis Nodes (p)     : 3
+      Global Nodes                     : 44109
+      Owned Nodes                      : 1057
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 125
+    Completed Load Increments          : 125
+    Total SNES Iterations              : 409
+    Final rnorm                        : 1.151531e+01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 1502
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 33.2822 (33.2822) sec
+    DoFs/Sec in SNES                   : 5.97181 (5.97181) million
+    Strain Energy                      : 2.78552590237132310867e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -1695,11 +1695,11 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
     SNES Convergence                   : CONVERGED_FNORM_RELATIVE
     Number of Load Increments          : 250
     Completed Load Increments          : 250
-    Total SNES Iterations              : 969
-    Final rnorm                        : 6.486104e+00
+    Total SNES Iterations              : 822
+    Final rnorm                        : 1.164406e+00
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 3381
+    Total KSP Iterations               : 3124
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -1708,12 +1708,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 174.094 (174.094) sec
-    DoFs/Sec in SNES                   : 8.90821 (8.90821) million
-    Strain Energy                      : 8.90039870526960754395e+09
+    SNES Solve Time                    : 147.858 (147.858) sec
+    DoFs/Sec in SNES                   : 9.69161 (9.69161) million
+    Strain Energy                      : 2.78501578478890752792e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 0.85e-6 -degree 5 -num_steps 475
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -1726,33 +1726,86 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
     Problem Name                       : Hyper elasticity finite strain
     Forcing Function                   : None
   Mesh:
-    File                               : unstructured_box_5.msh
+    File                               : unstructured_box_2.msh
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 367275
+    Owned nodes                        : 9827
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 5
+      Global Nodes                     : 367275
+      Owned Nodes                      : 9827
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 350
+    Completed Load Increments          : 350
+    Total SNES Iterations              : 1219
+    Final rnorm                        : 3.169144e+00
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 6091
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 397.95 (397.95) sec
+    DoFs/Sec in SNES                   : 16.8644 (16.8644) million
+    Strain Energy                      : 2.78166251931414222717e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_2.msh
     Number of 1D Basis Nodes (p)       : 6
     Number of 1D Quadrature Points (q) : 6
-    Global nodes                       : 42949
-    Owned nodes                        : 984
+    Global nodes                       : 723054
+    Owned nodes                        : 19759
     DoF per node                       : 3
   Multigrid:
     Type                               : P-multigrid, logarithmic coarsening
     Number of Levels                   : 4
     Level 0 (coarse):
       Number of 1D Basis Nodes (p)     : 2
-      Global Nodes                     : 245
-      Owned Nodes                      : 0
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
     Level 3 (fine):
       Number of 1D Basis Nodes (p)     : 6
-      Global Nodes                     : 42949
-      Owned Nodes                      : 984
+      Global Nodes                     : 723054
+      Owned Nodes                      : 19759
   SNES:
     SNES Type                          : newtonls
-    SNES Convergence                   : DIVERGED_LINEAR_SOLVE
-    Number of Load Increments          : 475
-    Completed Load Increments          : 472
-    Total SNES Iterations              : 1627
-    Final rnorm                        : 9.125529e+03
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1573
+    Final rnorm                        : 1.039429e+01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 7079
+    Total KSP Iterations               : 7200
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -1761,12 +1814,12 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 117.002 (117.002) sec
-    DoFs/Sec in SNES                   : 7.79566 (7.79566) million
-    Strain Energy                      : 8.81302715884075927734e+09
+    SNES Solve Time                    : 1154.8 (1154.8) sec
+    DoFs/Sec in SNES                   : 13.5244 (13.5244) million
+    Strain Energy                      : 2.78043757096945953369e+09
 
 Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -outer_ksp_dtol=1e6 -degree 5 -num_steps 475
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
 
 -- Elasticity Example - libCEED + PETSc --
   libCEED:
@@ -1779,86 +1832,33 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
     Problem Name                       : Hyper elasticity finite strain
     Forcing Function                   : None
   Mesh:
-    File                               : unstructured_box_5.msh
-    Number of 1D Basis Nodes (p)       : 6
-    Number of 1D Quadrature Points (q) : 6
-    Global nodes                       : 42949
-    Owned nodes                        : 984
-    DoF per node                       : 3
-  Multigrid:
-    Type                               : P-multigrid, logarithmic coarsening
-    Number of Levels                   : 4
-    Level 0 (coarse):
-      Number of 1D Basis Nodes (p)     : 2
-      Global Nodes                     : 245
-      Owned Nodes                      : 0
-    Level 3 (fine):
-      Number of 1D Basis Nodes (p)     : 6
-      Global Nodes                     : 42949
-      Owned Nodes                      : 984
-  SNES:
-    SNES Type                          : newtonls
-    SNES Convergence                   : DIVERGED_LINEAR_SOLVE
-    Number of Load Increments          : 475
-    Completed Load Increments          : 472
-    Total SNES Iterations              : 1621
-    Final rnorm                        : 9.125529e+03
-  Linear Solver:
-    KSP Type                           : cg
-    Total KSP Iterations               : 7013
-    PC Type                            : mg
-  P-Multigrid:
-    PCMG Type                          : MULTIPLICATIVE
-    PCMG Cycle Type                    : v
-    Coarse Solve:
-      KSP Type                         : preonly
-      PC Type                          : gamg
-  Performance:
-    SNES Solve Time                    : 120.157 (120.157) sec
-    DoFs/Sec in SNES                   : 7.52019 (7.52019) million
-    Strain Energy                      : 8.81302715884075927734e+09
-
-Running test:
-mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_2_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_3_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_4_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_5_scale .6666666666666667,2.25,.6666666666666667 -bc_clamp_6_scale .6666666666666667,2.25,.6666666666666667 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -outer_ksp_dtol=1e6 -degree 6 -num_steps 675
-
--- Elasticity Example - libCEED + PETSc --
-  libCEED:
-    libCEED Backend                    : /cpu/self/xsmm/blocked
-    libCEED Backend MemType            : host
-    libCEED User Requested MemType     : none
-  PETSc:
-    PETSc Vec Type                     : mpi
-  Problem:
-    Problem Name                       : Hyper elasticity finite strain
-    Forcing Function                   : None
-  Mesh:
-    File                               : unstructured_box_5.msh
+    File                               : unstructured_box_2.msh
     Number of 1D Basis Nodes (p)       : 7
     Number of 1D Quadrature Points (q) : 7
-    Global nodes                       : 75215
-    Owned nodes                        : 1805
+    Global nodes                       : 1256057
+    Owned nodes                        : 34805
     DoF per node                       : 3
   Multigrid:
     Type                               : P-multigrid, logarithmic coarsening
     Number of Levels                   : 4
     Level 0 (coarse):
       Number of 1D Basis Nodes (p)     : 2
-      Global Nodes                     : 245
-      Owned Nodes                      : 0
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
     Level 3 (fine):
       Number of 1D Basis Nodes (p)     : 7
-      Global Nodes                     : 75215
-      Owned Nodes                      : 1805
+      Global Nodes                     : 1256057
+      Owned Nodes                      : 34805
   SNES:
     SNES Type                          : newtonls
-    SNES Convergence                   : DIVERGED_MAX_IT
-    Number of Load Increments          : 675
-    Completed Load Increments          : 671
-    Total SNES Iterations              : 2313
-    Final rnorm                        : 4.117672e+03
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 2823
+    Final rnorm                        : 5.870119e-01
   Linear Solver:
     KSP Type                           : cg
-    Total KSP Iterations               : 13655
+    Total KSP Iterations               : 16116
     PC Type                            : mg
   P-Multigrid:
     PCMG Type                          : MULTIPLICATIVE
@@ -1867,6 +1867,318 @@ mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_cla
       KSP Type                         : preonly
       PC Type                          : gamg
   Performance:
-    SNES Solve Time                    : 280.469 (280.469) sec
-    DoFs/Sec in SNES                   : 10.9858 (10.9858) million
-    Strain Energy                      : 8.81653355466638183594e+09
+    SNES Solve Time                    : 4049.3 (4049.3) sec
+    DoFs/Sec in SNES                   : 14.9971 (14.9971) million
+    Strain Energy                      : 2.78033852610441112518e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_1.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_1.msh
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 2
+    Global nodes                       : 42021
+    Owned nodes                        : 1060
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : Algebraic multigrid
+    Number of Levels                   : 0
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+    Level 0 (fine):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 100
+    Completed Load Increments          : 100
+    Total SNES Iterations              : 335
+    Final rnorm                        : 6.532845e+00
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 1377
+    PC Type                            : gamg
+  Performance:
+    SNES Solve Time                    : 530.421 (530.421) sec
+    DoFs/Sec in SNES                   : 0.327266 (0.327266) million
+    Strain Energy                      : 2.68437054832393169403e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_1.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_1.msh
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 350047
+    Owned nodes                        : 9905
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 2
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+    Level 1 (fine):
+      Number of 1D Basis Nodes (p)     : 3
+      Global Nodes                     : 350047
+      Owned Nodes                      : 9905
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 125
+    Completed Load Increments          : 125
+    Total SNES Iterations              : 476
+    Final rnorm                        : 1.056416e+00
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 1824
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 267.003 (267.003) sec
+    DoFs/Sec in SNES                   : 7.17391 (7.17391) million
+    Strain Energy                      : 2.78346976830507802963e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_1.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_1.msh
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 1197317
+    Owned nodes                        : 35138
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 4
+      Global Nodes                     : 1197317
+      Owned Nodes                      : 35138
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 956
+    Final rnorm                        : 1.115094e-01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 3726
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 1435.73 (1435.73) sec
+    DoFs/Sec in SNES                   : 9.3218 (9.3218) million
+    Strain Energy                      : 2.77964334668988704681e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_1.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_1.msh
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 2857071
+    Owned nodes                        : 85363
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 5
+      Global Nodes                     : 2857071
+      Owned Nodes                      : 85363
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 350
+    Completed Load Increments          : 350
+    Total SNES Iterations              : 1432
+    Final rnorm                        : 8.987289e-01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 6885
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 3878.34 (3878.34) sec
+    DoFs/Sec in SNES                   : 15.216 (15.216) million
+    Strain Energy                      : 2.78147761303685665131e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_1.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_1.msh
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 5602549
+    Owned nodes                        : 169184
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 6
+      Global Nodes                     : 5602549
+      Owned Nodes                      : 169184
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1954
+    Final rnorm                        : 2.650841e-02
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 8356
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 11950.6 (11950.6) sec
+    DoFs/Sec in SNES                   : 11.7521 (11.7521) million
+    Strain Energy                      : 2.77902939263584232330e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_1.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_1.msh
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 9706991
+    Owned nodes                        : 295205
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 7
+      Global Nodes                     : 9706991
+      Owned Nodes                      : 295205
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 3282
+    Final rnorm                        : 3.381057e-02
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 17120
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 37330.4 (37330.4) sec
+    DoFs/Sec in SNES                   : 13.3551 (13.3551) million
+    Strain Energy                      : 2.78001157018357229233e+09
