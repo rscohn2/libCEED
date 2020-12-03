@@ -68,7 +68,7 @@ PetscErrorCode BCClamp(PetscInt dim, PetscReal loadIncrement,
   const PetscScalar lengthInit = 40.0;
   const PetscScalar lengthFinal = 57.6;
   u[0] = lx + s*(-kz*y + ky*z) + (1-c)*(-(ky*ky+kz*kz)*x + kx*ky*y + kx*kz*z) + x*(clampMax[7] - 1.0)*loadIncrement;
-  u[1] = ly + s*(kz*x + -kx*z) + (1-c)*(kx*ky*x + -(kx*kx+kz*kz)*y + ky*kz*z) + y*(clampMax[8] - 1.0)*loadIncrement + lengthFinal*0.025*sin(M_PI*12.0*y/lengthInit)*loadIncrement;
+  u[1] = ly + s*(kz*x + -kx*z) + (1-c)*(kx*ky*x + -(kx*kx+kz*kz)*y + ky*kz*z) + y*(clampMax[8] - 1.0)*loadIncrement + lengthFinal*0.025*sin(M_PI*12.0*x/lengthInit)*loadIncrement;
   u[2] = lz + s*(-ky*x + kx*y) + (1-c)*(kx*kz*x + ky*kz*y + -(kx*kx+ky*ky)*z) + z*(clampMax[9] - 1.0)*loadIncrement;
   PetscFunctionReturn(0);
 };
