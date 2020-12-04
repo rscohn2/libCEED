@@ -1,0 +1,2184 @@
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_15.msh
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 2
+    Global nodes                       : 8
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : Algebraic multigrid
+    Number of Levels                   : 0
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 8
+      Owned Nodes                      : 0
+    Level 0 (fine):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 8
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 100
+    Completed Load Increments          : 100
+    Total SNES Iterations              : 300
+    Final rnorm                        : 1.352221e-03
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 800
+    PC Type                            : gamg
+  Performance:
+    SNES Solve Time                    : 11.6854 (11.6854) sec
+    DoFs/Sec in SNES                   : 0.00164308 (0.00164308) million
+    Strain Energy                      : 1.15282845070912504196e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_15.msh
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 123
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 2
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 8
+      Owned Nodes                      : 0
+    Level 1 (fine):
+      Number of 1D Basis Nodes (p)     : 3
+      Global Nodes                     : 123
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 125
+    Completed Load Increments          : 125
+    Total SNES Iterations              : 375
+    Final rnorm                        : 7.214099e-05
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 1250
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 4.17941 (4.1794) sec
+    DoFs/Sec in SNES                   : 0.110363 (0.110363) million
+    Strain Energy                      : 1.17860260870971584320e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_15.msh
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 500
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 8
+      Owned Nodes                      : 0
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 4
+      Global Nodes                     : 500
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 750
+    Final rnorm                        : 1.688215e-05
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 3488
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 134.834 (134.834) sec
+    DoFs/Sec in SNES                   : 0.0388032 (0.0388032) million
+    Strain Energy                      : 1.39440051769994235039e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_15.msh
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 1295
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 8
+      Owned Nodes                      : 0
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 5
+      Global Nodes                     : 1295
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 350
+    Completed Load Increments          : 350
+    Total SNES Iterations              : 1050
+    Final rnorm                        : 1.623216e-01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 5664
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 46.0818 (46.0817) sec
+    DoFs/Sec in SNES                   : 0.477513 (0.477513) million
+    Strain Energy                      : 1.37763128328525066376e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_15.msh
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 2664
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 8
+      Owned Nodes                      : 0
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 6
+      Global Nodes                     : 2664
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1350
+    Final rnorm                        : 2.941775e-02
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 7813
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 94.6055 (94.6055) sec
+    DoFs/Sec in SNES                   : 0.66002 (0.66002) million
+    Strain Energy                      : 1.40218323006051349640e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_15.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_15.msh
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 4763
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 8
+      Owned Nodes                      : 0
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 7
+      Global Nodes                     : 4763
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 2550
+    Final rnorm                        : 8.597022e-05
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 17848
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 305.488 (305.488) sec
+    DoFs/Sec in SNES                   : 0.834828 (0.834828) million
+    Strain Energy                      : 1.41013059807490253448e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_10.msh
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 2
+    Global nodes                       : 28
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : Algebraic multigrid
+    Number of Levels                   : 0
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 28
+      Owned Nodes                      : 0
+    Level 0 (fine):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 28
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 100
+    Completed Load Increments          : 100
+    Total SNES Iterations              : 300
+    Final rnorm                        : 1.504214e-01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 700
+    PC Type                            : gamg
+  Performance:
+    SNES Solve Time                    : 12.9395 (12.9395) sec
+    DoFs/Sec in SNES                   : 0.00454421 (0.00454421) million
+    Strain Energy                      : 1.11446856764845228195e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_10.msh
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 345
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 2
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 28
+      Owned Nodes                      : 0
+    Level 1 (fine):
+      Number of 1D Basis Nodes (p)     : 3
+      Global Nodes                     : 345
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 125
+    Completed Load Increments          : 125
+    Total SNES Iterations              : 375
+    Final rnorm                        : 4.390092e-05
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 1432
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 3.64532 (3.64532) sec
+    DoFs/Sec in SNES                   : 0.406581 (0.406582) million
+    Strain Energy                      : 1.38307067119635367393e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_10.msh
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 1328
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 28
+      Owned Nodes                      : 0
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 4
+      Global Nodes                     : 1328
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 750
+    Final rnorm                        : 4.582533e-05
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 3473
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 12.1903 (12.1903) sec
+    DoFs/Sec in SNES                   : 1.13504 (1.13504) million
+    Strain Energy                      : 1.37930575354939746857e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_10.msh
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 3355
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 28
+      Owned Nodes                      : 0
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 5
+      Global Nodes                     : 3355
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 350
+    Completed Load Increments          : 350
+    Total SNES Iterations              : 1050
+    Final rnorm                        : 2.913131e-04
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 5950
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 26.6391 (26.6391) sec
+    DoFs/Sec in SNES                   : 2.24808 (2.24808) million
+    Strain Energy                      : 1.42599619232836627960e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_10.msh
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 6804
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 28
+      Owned Nodes                      : 0
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 6
+      Global Nodes                     : 6804
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1350
+    Final rnorm                        : 2.519683e-05
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 7983
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 59.6393 (59.6393) sec
+    DoFs/Sec in SNES                   : 2.73224 (2.73224) million
+    Strain Energy                      : 1.43750039744971323013e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_10.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_10.msh
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 12053
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 28
+      Owned Nodes                      : 0
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 7
+      Global Nodes                     : 12053
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 2550
+    Final rnorm                        : 2.383628e-04
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 15185
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 172.627 (172.627) sec
+    DoFs/Sec in SNES                   : 3.18069 (3.18069) million
+    Strain Energy                      : 1.43290104978848981857e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_6.msh
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 2
+    Global nodes                       : 196
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : Algebraic multigrid
+    Number of Levels                   : 0
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 196
+      Owned Nodes                      : 0
+    Level 0 (fine):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 196
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 100
+    Completed Load Increments          : 100
+    Total SNES Iterations              : 300
+    Final rnorm                        : 1.221417e-01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 700
+    PC Type                            : gamg
+  Performance:
+    SNES Solve Time                    : 22.9899 (22.9899) sec
+    DoFs/Sec in SNES                   : 0.0179035 (0.0179035) million
+    Strain Energy                      : 1.25685658114826107025e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_6.msh
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 1989
+    Owned nodes                        : 25
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 2
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 196
+      Owned Nodes                      : 0
+    Level 1 (fine):
+      Number of 1D Basis Nodes (p)     : 3
+      Global Nodes                     : 1989
+      Owned Nodes                      : 25
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 125
+    Completed Load Increments          : 125
+    Total SNES Iterations              : 375
+    Final rnorm                        : 2.506252e-04
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 1505
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 6.23433 (6.23433) sec
+    DoFs/Sec in SNES                   : 1.44046 (1.44047) million
+    Strain Energy                      : 1.43003558157956123352e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_6.msh
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 7238
+    Owned nodes                        : 128
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 196
+      Owned Nodes                      : 0
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 4
+      Global Nodes                     : 7238
+      Owned Nodes                      : 128
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 750
+    Final rnorm                        : 5.162352e-04
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 3356
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 20.5073 (20.5073) sec
+    DoFs/Sec in SNES                   : 3.55348 (3.55348) million
+    Strain Energy                      : 1.44506099864260101318e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_6.msh
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 17803
+    Owned nodes                        : 363
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 196
+      Owned Nodes                      : 0
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 5
+      Global Nodes                     : 17803
+      Owned Nodes                      : 363
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 350
+    Completed Load Increments          : 350
+    Total SNES Iterations              : 1050
+    Final rnorm                        : 2.488783e-03
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 5712
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 41.9349 (41.9349) sec
+    DoFs/Sec in SNES                   : 7.27489 (7.27489) million
+    Strain Energy                      : 1.44022183109055304527e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_6.msh
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 35544
+    Owned nodes                        : 784
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 196
+      Owned Nodes                      : 0
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 6
+      Global Nodes                     : 35544
+      Owned Nodes                      : 784
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1350
+    Final rnorm                        : 3.543970e-03
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 6955
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 96.7875 (96.7875) sec
+    DoFs/Sec in SNES                   : 7.66241 (7.66241) million
+    Strain Energy                      : 1.44011193131057357788e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_6.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_6.msh
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 62321
+    Owned nodes                        : 1445
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 196
+      Owned Nodes                      : 0
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 7
+      Global Nodes                     : 62321
+      Owned Nodes                      : 1445
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 2550
+    Final rnorm                        : 2.601572e-04
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 15305
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 297.04 (297.04) sec
+    DoFs/Sec in SNES                   : 9.63329 (9.63329) million
+    Strain Energy                      : 1.43728120837534809113e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_5.msh
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 2
+    Global nodes                       : 245
+    Owned nodes                        : 0
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : Algebraic multigrid
+    Number of Levels                   : 0
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 245
+      Owned Nodes                      : 0
+    Level 0 (fine):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 245
+      Owned Nodes                      : 0
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 100
+    Completed Load Increments          : 100
+    Total SNES Iterations              : 300
+    Final rnorm                        : 1.502935e-01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 700
+    PC Type                            : gamg
+  Performance:
+    SNES Solve Time                    : 25.8026 (25.8026) sec
+    DoFs/Sec in SNES                   : 0.0199398 (0.0199398) million
+    Strain Energy                      : 1.20048502898271846771e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_5.msh
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 2431
+    Owned nodes                        : 33
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 2
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 245
+      Owned Nodes                      : 0
+    Level 1 (fine):
+      Number of 1D Basis Nodes (p)     : 3
+      Global Nodes                     : 2431
+      Owned Nodes                      : 33
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 125
+    Completed Load Increments          : 125
+    Total SNES Iterations              : 375
+    Final rnorm                        : 3.558962e-04
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 1280
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 6.38244 (6.38244) sec
+    DoFs/Sec in SNES                   : 1.46261 (1.46261) million
+    Strain Energy                      : 1.40213884329390096664e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_5.msh
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 8789
+    Owned nodes                        : 164
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 245
+      Owned Nodes                      : 0
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 4
+      Global Nodes                     : 8789
+      Owned Nodes                      : 164
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 750
+    Final rnorm                        : 3.008405e-04
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 2936
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 20.0266 (20.0266) sec
+    DoFs/Sec in SNES                   : 3.86554 (3.86554) million
+    Strain Energy                      : 1.42858407144590210915e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_5.msh
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 21551
+    Owned nodes                        : 459
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 245
+      Owned Nodes                      : 0
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 5
+      Global Nodes                     : 21551
+      Owned Nodes                      : 459
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 350
+    Completed Load Increments          : 350
+    Total SNES Iterations              : 1050
+    Final rnorm                        : 4.446730e-03
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 4752
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 42.6029 (42.6029) sec
+    DoFs/Sec in SNES                   : 7.21151 (7.21151) million
+    Strain Energy                      : 1.43459749285018157959e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_5.msh
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 42949
+    Owned nodes                        : 984
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 245
+      Owned Nodes                      : 0
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 6
+      Global Nodes                     : 42949
+      Owned Nodes                      : 984
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1350
+    Final rnorm                        : 1.491432e-03
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 6387
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 99.3247 (99.3247) sec
+    DoFs/Sec in SNES                   : 8.28541 (8.28541) million
+    Strain Energy                      : 1.43634626658243703842e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_5.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_5.msh
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 75215
+    Owned nodes                        : 1805
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 245
+      Owned Nodes                      : 0
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 7
+      Global Nodes                     : 75215
+      Owned Nodes                      : 1805
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 2550
+    Final rnorm                        : 2.671282e-04
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 15000
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 310.648 (310.648) sec
+    DoFs/Sec in SNES                   : 10.8955 (10.8955) million
+    Strain Energy                      : 1.43763512485011529922e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_3.msh
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 2
+    Global nodes                       : 1404
+    Owned nodes                        : 19
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : Algebraic multigrid
+    Number of Levels                   : 0
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 1404
+      Owned Nodes                      : 19
+    Level 0 (fine):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 1404
+      Owned Nodes                      : 19
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 100
+    Completed Load Increments          : 100
+    Total SNES Iterations              : 300
+    Final rnorm                        : 2.578692e-01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 800
+    PC Type                            : gamg
+  Performance:
+    SNES Solve Time                    : 57.9215 (57.9215) sec
+    DoFs/Sec in SNES                   : 0.0581753 (0.0581753) million
+    Strain Energy                      : 1.32317496660187196732e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_3.msh
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 12711
+    Owned nodes                        : 283
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 2
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 1404
+      Owned Nodes                      : 19
+    Level 1 (fine):
+      Number of 1D Basis Nodes (p)     : 3
+      Global Nodes                     : 12711
+      Owned Nodes                      : 283
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 125
+    Completed Load Increments          : 125
+    Total SNES Iterations              : 375
+    Final rnorm                        : 1.435610e-02
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 1351
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 13.7925 (13.7925) sec
+    DoFs/Sec in SNES                   : 3.7352 (3.7352) million
+    Strain Energy                      : 1.44190815452517724037e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_3.msh
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 44660
+    Owned nodes                        : 1139
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 1404
+      Owned Nodes                      : 19
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 4
+      Global Nodes                     : 44660
+      Owned Nodes                      : 1139
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 750
+    Final rnorm                        : 4.541097e-03
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 2890
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 53.4373 (53.4373) sec
+    DoFs/Sec in SNES                   : 7.24592 (7.24592) million
+    Strain Energy                      : 1.44081756224327945709e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_3.msh
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 107991
+    Owned nodes                        : 2935
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 1404
+      Owned Nodes                      : 19
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 5
+      Global Nodes                     : 107991
+      Owned Nodes                      : 2935
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 350
+    Completed Load Increments          : 350
+    Total SNES Iterations              : 1050
+    Final rnorm                        : 9.407303e-02
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 4891
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 119.314 (119.314) sec
+    DoFs/Sec in SNES                   : 13.2805 (13.2805) million
+    Strain Energy                      : 1.44028417620354461670e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_3.msh
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 213444
+    Owned nodes                        : 6019
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 1404
+      Owned Nodes                      : 19
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 6
+      Global Nodes                     : 213444
+      Owned Nodes                      : 6019
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1350
+    Final rnorm                        : 5.664456e-02
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 6300
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 322.01 (322.01) sec
+    DoFs/Sec in SNES                   : 12.5279 (12.5279) million
+    Strain Energy                      : 1.43776465862738084793e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_3.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_3.msh
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 371759
+    Owned nodes                        : 10739
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 1404
+      Owned Nodes                      : 19
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 7
+      Global Nodes                     : 371759
+      Owned Nodes                      : 10739
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 2550
+    Final rnorm                        : 1.290150e-02
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 14206
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 1082.73 (1082.73) sec
+    DoFs/Sec in SNES                   : 14.6331 (14.6331) million
+    Strain Energy                      : 1.43819772784515190125e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_2.msh
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 2
+    Global nodes                       : 5082
+    Owned nodes                        : 95
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : Algebraic multigrid
+    Number of Levels                   : 0
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
+    Level 0 (fine):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 100
+    Completed Load Increments          : 100
+    Total SNES Iterations              : 300
+    Final rnorm                        : 1.435119e+00
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 800
+    PC Type                            : gamg
+  Performance:
+    SNES Solve Time                    : 115.389 (115.389) sec
+    DoFs/Sec in SNES                   : 0.105702 (0.105702) million
+    Strain Energy                      : 1.38574162651227426529e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_2.msh
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 44109
+    Owned nodes                        : 1057
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 2
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
+    Level 1 (fine):
+      Number of 1D Basis Nodes (p)     : 3
+      Global Nodes                     : 44109
+      Owned Nodes                      : 1057
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 125
+    Completed Load Increments          : 125
+    Total SNES Iterations              : 375
+    Final rnorm                        : 2.749611e-02
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 1357
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 30.2475 (30.2475) sec
+    DoFs/Sec in SNES                   : 5.93661 (5.93661) million
+    Strain Energy                      : 1.43575662731338024139e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_2.msh
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 152900
+    Owned nodes                        : 3947
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 4
+      Global Nodes                     : 152900
+      Owned Nodes                      : 3947
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 750
+    Final rnorm                        : 3.988507e-02
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 2750
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 138.217 (138.217) sec
+    DoFs/Sec in SNES                   : 9.12639 (9.12639) million
+    Strain Energy                      : 1.43727094668269348145e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_2.msh
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 367275
+    Owned nodes                        : 9827
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 5
+      Global Nodes                     : 367275
+      Owned Nodes                      : 9827
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 350
+    Completed Load Increments          : 350
+    Total SNES Iterations              : 1050
+    Final rnorm                        : 2.283274e-01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 4824
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 338.72 (338.72) sec
+    DoFs/Sec in SNES                   : 15.692 (15.692) million
+    Strain Energy                      : 1.43710911015269231796e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_2.msh
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 723054
+    Owned nodes                        : 19759
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 6
+      Global Nodes                     : 723054
+      Owned Nodes                      : 19759
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1350
+    Final rnorm                        : 2.514854e-01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 5508
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 962.44 (962.44) sec
+    DoFs/Sec in SNES                   : 12.414 (12.414) million
+    Strain Energy                      : 1.43706338330198574066e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_2.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_2.msh
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 1256057
+    Owned nodes                        : 34805
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 5082
+      Owned Nodes                      : 95
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 7
+      Global Nodes                     : 1256057
+      Owned Nodes                      : 34805
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 2550
+    Final rnorm                        : 8.944498e-02
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 13016
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 3511.97 (3511.97) sec
+    DoFs/Sec in SNES                   : 13.9655 (13.9655) million
+    Strain Energy                      : 1.43696187542474603653e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_1.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 1 -num_steps 100
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_1.msh
+    Number of 1D Basis Nodes (p)       : 2
+    Number of 1D Quadrature Points (q) : 2
+    Global nodes                       : 42021
+    Owned nodes                        : 1060
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : Algebraic multigrid
+    Number of Levels                   : 0
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+    Level 0 (fine):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 100
+    Completed Load Increments          : 100
+    Total SNES Iterations              : 300
+    Final rnorm                        : 4.476310e-01
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 1100
+    PC Type                            : gamg
+  Performance:
+    SNES Solve Time                    : 473.962 (473.962) sec
+    DoFs/Sec in SNES                   : 0.292575 (0.292575) million
+    Strain Energy                      : 1.42461055220919942856e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_1.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 2 -num_steps 125
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_1.msh
+    Number of 1D Basis Nodes (p)       : 3
+    Number of 1D Quadrature Points (q) : 3
+    Global nodes                       : 350047
+    Owned nodes                        : 9905
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 2
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+    Level 1 (fine):
+      Number of 1D Basis Nodes (p)     : 3
+      Global Nodes                     : 350047
+      Owned Nodes                      : 9905
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 125
+    Completed Load Increments          : 125
+    Total SNES Iterations              : 375
+    Final rnorm                        : 2.184470e+00
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 1375
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 209.34 (209.34) sec
+    DoFs/Sec in SNES                   : 6.89759 (6.89759) million
+    Strain Energy                      : 1.43767321716201257706e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_1.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 3 -num_steps 250
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_1.msh
+    Number of 1D Basis Nodes (p)       : 4
+    Number of 1D Quadrature Points (q) : 4
+    Global nodes                       : 1197317
+    Owned nodes                        : 35138
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 4
+      Global Nodes                     : 1197317
+      Owned Nodes                      : 35138
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 250
+    Completed Load Increments          : 250
+    Total SNES Iterations              : 750
+    Final rnorm                        : 1.640569e+00
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 2750
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 1080.63 (1080.63) sec
+    DoFs/Sec in SNES                   : 9.1408 (9.1408) million
+    Strain Energy                      : 1.43676648424805545807e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_1.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 4 -num_steps 350
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_1.msh
+    Number of 1D Basis Nodes (p)       : 5
+    Number of 1D Quadrature Points (q) : 5
+    Global nodes                       : 2857071
+    Owned nodes                        : 85363
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 3
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+    Level 2 (fine):
+      Number of 1D Basis Nodes (p)     : 5
+      Global Nodes                     : 2857071
+      Owned Nodes                      : 85363
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 350
+    Completed Load Increments          : 350
+    Total SNES Iterations              : 1201
+    Final rnorm                        : 1.828032e-05
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 5982
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 3245.22 (3245.22) sec
+    DoFs/Sec in SNES                   : 15.7995 (15.7995) million
+    Strain Energy                      : 1.43802300956828832626e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_1.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 5 -num_steps 450
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_1.msh
+    Number of 1D Basis Nodes (p)       : 6
+    Number of 1D Quadrature Points (q) : 6
+    Global nodes                       : 5602549
+    Owned nodes                        : 169184
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 6
+      Global Nodes                     : 5602549
+      Owned Nodes                      : 169184
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 450
+    Completed Load Increments          : 450
+    Total SNES Iterations              : 1508
+    Final rnorm                        : 1.797570e-05
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 7033
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 9384.45 (9384.45) sec
+    DoFs/Sec in SNES                   : 12.5962 (12.5962) million
+    Strain Energy                      : 1.43666215469074654579e+09
+
+Running test:
+mpiexec -n 32 ./elasticity -ceed /cpu/self/xsmm/blocked -problem hyperFS -bc_clamp 1,2,3,4,5,6 -bc_clamp_1_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_2_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_3_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_4_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_5_scale 0.83333333333333333,1.44,0.83333333333333333 -bc_clamp_6_scale 0.83333333333333333,1.44,0.83333333333333333 -nu 0.32 -E 69e6 -units_meter 100 -mesh unstructured_box_1.msh -snes_ksp_ew -snes_ksp_ew_alpha 2 -snes_rtol 1e-6 -degree 6 -num_steps 850
+
+-- Elasticity Example - libCEED + PETSc --
+  libCEED:
+    libCEED Backend                    : /cpu/self/xsmm/blocked
+    libCEED Backend MemType            : host
+    libCEED User Requested MemType     : none
+  PETSc:
+    PETSc Vec Type                     : mpi
+  Problem:
+    Problem Name                       : Hyper elasticity finite strain
+    Forcing Function                   : None
+  Mesh:
+    File                               : unstructured_box_1.msh
+    Number of 1D Basis Nodes (p)       : 7
+    Number of 1D Quadrature Points (q) : 7
+    Global nodes                       : 9706991
+    Owned nodes                        : 295205
+    DoF per node                       : 3
+  Multigrid:
+    Type                               : P-multigrid, logarithmic coarsening
+    Number of Levels                   : 4
+    Level 0 (coarse):
+      Number of 1D Basis Nodes (p)     : 2
+      Global Nodes                     : 42021
+      Owned Nodes                      : 1060
+    Level 3 (fine):
+      Number of 1D Basis Nodes (p)     : 7
+      Global Nodes                     : 9706991
+      Owned Nodes                      : 295205
+  SNES:
+    SNES Type                          : newtonls
+    SNES Convergence                   : CONVERGED_FNORM_RELATIVE
+    Number of Load Increments          : 850
+    Completed Load Increments          : 850
+    Total SNES Iterations              : 2556
+    Final rnorm                        : 4.139181e-06
+  Linear Solver:
+    KSP Type                           : cg
+    Total KSP Iterations               : 11689
+    PC Type                            : mg
+  P-Multigrid:
+    PCMG Type                          : MULTIPLICATIVE
+    PCMG Cycle Type                    : v
+    Coarse Solve:
+      KSP Type                         : preonly
+      PC Type                          : gamg
+  Performance:
+    SNES Solve Time                    : 27620.4 (27620.4) sec
+    DoFs/Sec in SNES                   : 12.324 (12.324) million
+    Strain Energy                      : 1.43723603226285886765e+09
